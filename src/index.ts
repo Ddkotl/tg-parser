@@ -3,6 +3,7 @@ import { StringSession } from "telegram/sessions/index.js";
 import * as readline from "node:readline";
 import * as fs from "fs";
 import dotenv from "dotenv";
+import { parseChanel } from "./modules/parse_chanel.js";
 dotenv.config();
 
 const apiId = process.env.TELEGRAM_CLIENT_API_ID;
@@ -40,16 +41,26 @@ function ask(query: string): Promise<string> {
 
   console.log("🔄 Подключение к Telegram...");
 
-  const client = new TelegramClient(stringSession, +apiId, apiHash, {
-    connectionRetries: 5,
-  });
+  const client = new TelegramClient(
+    stringSession,
+    +apiId,
+    apiHash,
+    {
+      connectionRetries: 5,
+    },
+  );
 
   await client.start({
-    phoneNumber: async () => await ask("📱 Введите номер телефона: "),
+    phoneNumber: async () =>
+      await ask("📱 Введите номер телефона: "),
     password: async () =>
-      await ask("🔑 Введите пароль 2FA (если есть, иначе Enter): "),
-    phoneCode: async () => await ask("📩 Введите код из Telegram: "),
-    onError: (err) => console.error("❌ Ошибка авторизации:", err),
+      await ask(
+        "🔑 Введите пароль 2FA (если есть, иначе Enter): ",
+      ),
+    phoneCode: async () =>
+      await ask("📩 Введите код из Telegram: "),
+    onError: (err) =>
+      console.error("❌ Ошибка авторизации:", err),
   });
 
   console.log("✅ Успешно подключились!");
@@ -60,7 +71,7 @@ function ask(query: string): Promise<string> {
 
   // Пример: отправка сообщения себе
   await client.sendMessage("me", { message: "Hello!" });
-
+await parseChanel(client,"https://t.me/tg33ev",10)
   console.log("📨 Сообщение отправлено.");
   await client.disconnect();
   process.exit(0);
