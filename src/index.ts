@@ -22,7 +22,7 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
     post_count: 1,
     diff_hour: 3,
   });
-  
+
   console.log("📨 Сообщение отправлено.");
   await client.disconnect();
   process.exit(0);
