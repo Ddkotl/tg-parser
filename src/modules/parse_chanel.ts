@@ -1,6 +1,6 @@
 import { Api, type TelegramClient } from "telegram";
 import { safeTranslate } from "../utils/ai/safe_translate.js";
-import { translateText } from "../utils/ai/translate_text.js";
+import { editTextToAi } from "../utils/ai/edit_text_to_ai.js";
 
 export async function parseChanel({
   client,
@@ -22,8 +22,7 @@ export async function parseChanel({
   let counter = 1;
   for (const msg of messages.reverse()) {
     const text = msg.message || "";
-    const modyfied_text = await safeTranslate(text, translateText, "", 0.5);
-    console.log(modyfied_text);
+    const modyfied_text = await safeTranslate(text, editTextToAi, 0.3);
     const media = msg.media;
     const date = msg.date;
     const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);

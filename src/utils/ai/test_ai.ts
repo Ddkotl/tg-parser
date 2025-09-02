@@ -1,6 +1,5 @@
 import { openai } from "../api/ai_api_connect.js";
-import dotenv from "dotenv"
-dotenv.config()
+
 async function test() {
   const res = await openai.chat.completions.create({
     model: `${process.env.AI_MODEL}`,

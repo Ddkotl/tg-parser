@@ -66,15 +66,14 @@ const containsError = (response: string): boolean => {
 
 export const safeTranslate = async (
   text: string,
-  translateFunction: (text: string, context?: string, temperature?: number) => Promise<string>,
-  context?: string,
+  translateFunction: (text: string, temperature?: number) => Promise<string>,
   temperature?: number,
   retries: number = 50,
 ): Promise<string> => {
   for (let i = 0; i < retries; i++) {
     try {
       await sleep(1000);
-      const response = await translateFunction(text, context, temperature);
+      const response = await translateFunction(text, temperature);
       if (response && !containsError(response)) {
         return response;
       }
