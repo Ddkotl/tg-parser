@@ -82,7 +82,7 @@ export const safeTranslate = async (
     } catch (error) {
       console.log(`Ошибка перевода (попытка ${i + 1}):`, error);
     }
-    await sleep(1000);
+    await sleep(5000);
   }
   console.log("Превышено количество попыток. Операция не выполнена.");
   return "";

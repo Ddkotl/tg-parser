@@ -22,8 +22,8 @@ export async function parseChanel({
   let counter = 1;
   for (const msg of messages.reverse()) {
     const text = msg.message || "";
-    const modyfied_text = await safeTranslate(text,translateText,"",0.5)
-    console.log(modyfied_text)
+    const modyfied_text = await safeTranslate(text, translateText, "", 0.5);
+    console.log(modyfied_text);
     const media = msg.media;
     const date = msg.date;
     const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);
@@ -33,12 +33,12 @@ export async function parseChanel({
     if (media && media instanceof Api.MessageMediaPhoto) {
       await client.sendFile(my_chanel_url, {
         file: media,
-        caption: `${modyfied_text}`,
+        caption: modyfied_text,
         scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
       });
     } else {
       await client.sendMessage(my_chanel_url, {
-        message: `${modyfied_text}`,
+        message: modyfied_text,
         schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
       });
     }

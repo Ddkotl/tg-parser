@@ -20,7 +20,11 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
     parsed_chanel_url: "https://t.me/Goroskop",
     my_chanel_url: "me",
     post_count: 1,
-    diff_hour: 3,
+    diff_hour: 30,
+  });
+  await client.sendMessage("me", {
+    message: "hi",
+    schedule: Math.floor(Date.now() / 1000) + 60 * 5,
   });
 
   console.log("📨 Сообщение отправлено.");
