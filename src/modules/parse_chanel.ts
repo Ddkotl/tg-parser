@@ -22,6 +22,9 @@ export async function parseChanel({
   let counter = 1;
   const exception: string[] = [];
   for (const msg of messages.reverse()) {
+    if(msg.fwdFrom){
+      continue
+    }
     const text = msg.message || "";
     const modyfied_text = await safeTranslate(text, editTextToAi, 0.3);
     const media = msg.media;
@@ -30,21 +33,18 @@ export async function parseChanel({
     if (diff_hours >= diff_hour) {
       continue;
     }
-    if (msg.groupedId !== undefined) {
+    if (msg.groupedId !== undefined && msg.groupedId !== null) {
       if (exception.includes(msg.groupedId.toString())) {
         continue;
       }
       exception.push(msg.groupedId.toString());
-      const album = messages.filter((m) => m.groupedId === msg.groupedId);
-
-      const caption = album[0]?.message ?? "";
-
-      const files = album.filter((m) => m.media).map((m) => m.media as Api.MessageMediaPhoto);
-
+      const album = messages.filter((m) => m.groupedId?.toString() === msg.groupedId?.toString());
+      const files = album.filter((m) => m.media instanceof Api.MessageMediaPhoto).map((m) => m.media as Api.MessageMediaPhoto);
       if (files.length > 0) {
         await client.sendFile(my_chanel_url, {
           file: files,
-          caption,
+          caption:modyfied_text,
+          forceDocument:false,
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         });
       }
