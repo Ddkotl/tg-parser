@@ -20,11 +20,8 @@ export async function parseChanel({
     limit: post_count,
   });
   let counter = 1;
- const exception =[]
+  const exception: BigInt[] = [];
   for (const msg of messages.reverse()) {
-    if(exception.includes(msg.groupedId)){
-      continue
-    }
     const text = msg.message || "";
     const modyfied_text = await safeTranslate(text, editTextToAi, 0.3);
     const media = msg.media;
@@ -34,34 +31,37 @@ export async function parseChanel({
       continue;
     }
     if (msg.groupedId) {
-      exception.push(msg.groupedId)
-      const album = messages.filter((m) => m.groupedId?.eq(msg.groupedId!));
+      if (exception.includes(msg.groupedId)) {
+        continue;
+      }
+      exception.push(msg.groupedId);
+      const album = messages.filter((m) => m.groupedId === msg.groupedId);
 
       const caption = album[0]?.message ?? "";
 
-      const files = album
-        .filter((m) => m.media)
-        .map((m) => m.media as Api.MessageMediaPhoto);
+      const files = album.filter((m) => m.media).map((m) => m.media as Api.MessageMediaPhoto);
 
       if (files.length > 0) {
         await client.sendFile(my_chanel_url, {
           file: files,
           caption,
+          scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         });
       }
-    }else{
-    if (media && media instanceof Api.MessageMediaPhoto) {
-      await client.sendFile(my_chanel_url, {
-        file: media,
-        caption: modyfied_text,
-        scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-      });
     } else {
-      await client.sendMessage(my_chanel_url, {
-        message: modyfied_text,
-        schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-      });
-    }}
+      if (media && media instanceof Api.MessageMediaPhoto) {
+        await client.sendFile(my_chanel_url, {
+          file: media,
+          caption: modyfied_text,
+          scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+        });
+      } else {
+        await client.sendMessage(my_chanel_url, {
+          message: modyfied_text,
+          schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+        });
+      }
+    }
     counter++;
   }
 }
