@@ -22,7 +22,8 @@ export const editTextToAi = async (text: string, temperature?: number): Promise<
                 3. В конце 2–4 тематических хэштега через пробел.
                   
                   Отвечай строго в формате поста, без комментариев и пояснений.
-       ` },
+       `,
+        },
         {
           role: "user",
           content: text,
@@ -35,4 +36,4 @@ export const editTextToAi = async (text: string, temperature?: number): Promise<
     console.error("ai process post error", e);
     return "";
   }
-}
+};
