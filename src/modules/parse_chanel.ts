@@ -20,7 +20,7 @@ export async function parseChanel({
     limit: post_count,
   });
   let counter = 1;
-  const exception: BigInt[] = [];
+  const exception: string[] = [];
   for (const msg of messages.reverse()) {
     const text = msg.message || "";
     const modyfied_text = await safeTranslate(text, editTextToAi, 0.3);
@@ -30,11 +30,11 @@ export async function parseChanel({
     if (diff_hours >= diff_hour) {
       continue;
     }
-    if (msg.groupedId) {
-      if (exception.includes(msg.groupedId)) {
+    if (msg.groupedId !== undefined) {
+      if (exception.includes(msg.groupedId.toString())) {
         continue;
       }
-      exception.push(msg.groupedId);
+      exception.push(msg.groupedId.toString());
       const album = messages.filter((m) => m.groupedId === msg.groupedId);
 
       const caption = album[0]?.message ?? "";
@@ -48,19 +48,17 @@ export async function parseChanel({
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         });
       }
+    } else if (media && media instanceof Api.MessageMediaPhoto) {
+      await client.sendFile(my_chanel_url, {
+        file: media,
+        caption: modyfied_text,
+        scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+      });
     } else {
-      if (media && media instanceof Api.MessageMediaPhoto) {
-        await client.sendFile(my_chanel_url, {
-          file: media,
-          caption: modyfied_text,
-          scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-        });
-      } else {
-        await client.sendMessage(my_chanel_url, {
-          message: modyfied_text,
-          schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-        });
-      }
+      await client.sendMessage(my_chanel_url, {
+        message: modyfied_text,
+        schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+      });
     }
     counter++;
   }
