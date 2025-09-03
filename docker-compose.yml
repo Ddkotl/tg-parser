@@ -1,0 +1,17 @@
+services:
+  g4f:
+    container_name: g4f_service_tg
+    image: hlohaus789/g4f:latest-slim
+    restart: always
+    ports:
+      - ${G4F_PORT}:1337
+    #volumes:
+    #  - ./har_and_cookies:/app/har_and_cookies
+    #  - ./generated_images:/app/generated_images
+    command: >
+      sh -c ' rm -r -f /app/g4f/ && pip install -U g4f[slim] && python -m g4f --debug'
+    networks:
+      - backend_tg
+
+networks:
+  backend_tg:
