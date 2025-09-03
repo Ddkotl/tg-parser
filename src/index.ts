@@ -18,9 +18,9 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
   await parseChanel({
     client: client,
     parsed_chanel_url: "https://t.me/Goroskop",
-    my_chanel_url: "me",
+    my_chanel_url: "https://t.me/star_eliksir",
     post_count: 10,
-    diff_hour: 60,
+    diff_hour: 3,
   });
   console.log("📨 Сообщение отправлено.");
   await client.disconnect();
