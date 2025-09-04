@@ -67,15 +67,15 @@ const containsError = (response: string): boolean => {
 
 export const safeAiAsk = async (
   text: string,
-  targetLang: SupportedLang,
-  aiFunction: (text: string, targetLang: SupportedLang, temperature?: number) => Promise<string>,
+  system_promt:string,
+  aiFunction: (text: string,system_promt:string, temperature?: number) => Promise<string>,
   temperature?: number,
   retries: number = 50,
 ): Promise<string> => {
   for (let i = 0; i < retries; i++) {
     try {
       await sleep(1000);
-      const response = await aiFunction(text, targetLang, temperature);
+      const response = await aiFunction(text,system_promt, temperature);
       if (response && !containsError(response)) {
         return response;
       }

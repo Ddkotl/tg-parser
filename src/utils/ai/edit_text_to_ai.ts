@@ -1,11 +1,6 @@
 import { openai } from "../api/ai_api_connect.js";
-import type { SupportedLang } from "./types.js";
 
-export const editTextToAi = async (
-  text: string,
-  targetLang: SupportedLang,
-  temperature?: number,
-): Promise<string> => {
+export const editTextToAi = async (text: string,system_promt:string, temperature?: number): Promise<string> => {
   try {
     const chatCompletion = await openai.chat.completions.create({
       model: `${process.env.AI_MODEL}`,
@@ -13,21 +8,7 @@ export const editTextToAi = async (
       messages: [
         {
           role: "system",
-          content: `
-          Ты профессиональный редактор Telegram-канала. 
-          Задачи:
-          - Сделай уникальный контент (перефразируй текст, добавь живости).
-          - Переведи на ${targetLang}, если текст не на ${targetLang}.
-          - Удали рекламу и упоминания чужих каналов.
-          - Сохрани суть и факты, оформи красиво в стиле Telegram.
-          - Добавь уместные эмодзи в основной текст (не в заголовке).
-          - Структура ответа:
-            1. Первая строка — цепляющий заголовок без эмодзи(суть поста).
-            2. Несколько абзацев текста (читаемо, красиво, с лёгкими эмодзи).
-            3. В конце 2–4 тематических хэштега через пробел.
-                  
-          Отвечай строго в формате поста, без комментариев и пояснений.
-       `,
+          content:system_promt,
         },
         {
           role: "user",

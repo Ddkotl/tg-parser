@@ -15,13 +15,13 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
     apiHash: apiHash,
     SESSION_FILE: SESSION_FILE,
   });
- const results = await Promise.allSettled(
+  const results = await Promise.allSettled(
     chanels_parser_config.map((conf) =>
       parseChanel({
         client,
         ...conf,
-      })
-    )
+      }),
+    ),
   );
 
   results.forEach((res, i) => {
@@ -37,4 +37,4 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
   await client.disconnect();
   process.exit(0);
 })();
-// 0 */3 * * * cd /home/dd/bash_scripsts/www/tg-parser && /home/dd/.nvm/versions/node/v20.18.0/bin/npm run start >> /home/dd/bash_scripsts/www/tg-parser/npm-start.log 2>&1
+// 0 */3 * * * . $HOME/.nvm/nvm.sh cd $HOME/bash_scripsts/www/tg-parser && npm run start >> $HOME/bash_scripsts/www/tg-parser/npm-start.log 2>&1

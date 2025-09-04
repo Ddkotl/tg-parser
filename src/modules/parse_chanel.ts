@@ -9,6 +9,8 @@ export async function parseChanel({
   my_chanel_url_en,
   post_count,
   diff_hour,
+  system_ai_promt_ru,
+  system_ai_promt_en
 }: {
   client: TelegramClient;
   parsed_chanel_url: string;
@@ -16,6 +18,8 @@ export async function parseChanel({
   my_chanel_url_en: string;
   post_count: number;
   diff_hour: number;
+  system_ai_promt_ru:string;
+  system_ai_promt_en:string;
 }) {
   const channel = await client.getEntity(parsed_chanel_url);
   const messages = await client.getMessages(channel, {
@@ -30,8 +34,8 @@ export async function parseChanel({
     if (!text && !msg.media && !msg.groupedId) continue;
     
     const [modyfied_text_ru, modyfied_text_en] = await Promise.all([
-      safeAiAsk(text, "ru-RU", editTextToAi, 0.3),
-      safeAiAsk(text, "en-US", editTextToAi, 0.3),
+      safeAiAsk(text, system_ai_promt_ru, editTextToAi, 0.3),
+      safeAiAsk(text, system_ai_promt_en, editTextToAi, 0.3),
     ]);
     const media = msg.media;
     const date = msg.date;
