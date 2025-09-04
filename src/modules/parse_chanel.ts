@@ -25,7 +25,8 @@ export async function parseChanel({
   const messages = await client.getMessages(channel, {
     limit: post_count,
   });
-  // console.log("mesgs", messages.length);
+  console.log("mesgs", messages.length);
+  console.log(messages)
   // messages.forEach((msg) => {
   //   console.log({
   //     id: msg.id,
