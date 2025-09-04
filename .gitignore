@@ -2,3 +2,5 @@
 /dist
 .env
 session.txt
+log.txt
+txt.txt

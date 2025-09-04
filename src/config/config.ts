@@ -4,17 +4,17 @@ export type ParseChanelConfigData = {
   my_chanel_url_en: string;
   post_count: number;
   diff_hour: number;
-  system_ai_promt_ru:string,
-  system_ai_promt_en:string
+  system_ai_promt_ru: string;
+  system_ai_promt_en: string;
 };
 export const chanels_parser_config: ParseChanelConfigData[] = [
   {
     parsed_chanel_url: "https://t.me/Goroskop",
     my_chanel_url_ru: "https://t.me/star_eliksir",
     my_chanel_url_en: "https://t.me/star_elixir",
-    post_count: 5,
-    diff_hour: 3,
-    system_ai_promt_ru:`
+    post_count: 10,
+    diff_hour: 30,
+    system_ai_promt_ru: `
     Ты профессиональный редактор Telegram-канала.
     Задачи:
     - Сделай уникальный контент (перефразируй текст, добавь живости).
@@ -29,7 +29,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
                                                                                                                                 
     Отвечай строго в формате поста, без комментариев и пояснений.
   `,
-  system_ai_promt_en:`
+    system_ai_promt_en: `
   You are a professional Telegram channel editor.
   Tasks:
   - Make the content unique (paraphrase, add liveliness).
@@ -43,6 +43,6 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     3. At the end 2–4 thematic hashtags separated by spaces.
                                                                                                                       
   Answer strictly in the format of a post, without comments or explanations.
-  `                                                                                                                            
+  `,
   },
 ];

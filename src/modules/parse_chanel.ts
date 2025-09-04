@@ -10,7 +10,7 @@ export async function parseChanel({
   post_count,
   diff_hour,
   system_ai_promt_ru,
-  system_ai_promt_en
+  system_ai_promt_en,
 }: {
   client: TelegramClient;
   parsed_chanel_url: string;
@@ -18,31 +18,50 @@ export async function parseChanel({
   my_chanel_url_en: string;
   post_count: number;
   diff_hour: number;
-  system_ai_promt_ru:string;
-  system_ai_promt_en:string;
+  system_ai_promt_ru: string;
+  system_ai_promt_en: string;
 }) {
   const channel = await client.getEntity(parsed_chanel_url);
   const messages = await client.getMessages(channel, {
     limit: post_count,
   });
+  // console.log("mesgs", messages.length);
+  // messages.forEach((msg) => {
+  //   console.log({
+  //     id: msg.id,
+  //     text: msg.message?.substring(0, 50), // первые 50 символов
+  //     date: msg.date,
+  //     is_outgoing: msg.out, // отправлено ли твоим аккаунтом
+  //     is_forwarded: msg.fwdFrom, // пересланное сообщение
+  //     is_scheduled: msg.fromScheduled, // отложенное сообщение
+  //     groupid: msg.groupedId,
+  //     media:!!msg.media,
+  //     editHide: msg.editHide,
+  //     legacy:msg.legacy,
+  //     restricion:msg.restrictionReason
+  //   });
+  // });
   let counter = 1;
   const exception: string[] = [];
   for (const msg of messages.reverse()) {
     if (msg.fwdFrom) continue;
     if (msg.editHide || msg.legacy || msg.restrictionReason) continue;
-    const text = msg.message || "";
+    const text = msg.message;
+    if (!text) continue;
     if (!text && !msg.media && !msg.groupedId) continue;
-    
+    console.log("text", text.slice(0, 50));
     const [modyfied_text_ru, modyfied_text_en] = await Promise.all([
       safeAiAsk(text, system_ai_promt_ru, editTextToAi, 0.3),
       safeAiAsk(text, system_ai_promt_en, editTextToAi, 0.3),
     ]);
+    console.log("ru", modyfied_text_ru.slice(0, 50));
+    console.log("en", modyfied_text_en.slice(0, 50));
     const media = msg.media;
     const date = msg.date;
-    const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);
-    if (diff_hours >= diff_hour) {
-      continue;
-    }
+    // const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);
+    // if (diff_hours >= diff_hour) {
+    // continue;
+    //}
     if (msg.groupedId !== undefined && msg.groupedId !== null) {
       if (exception.includes(msg.groupedId.toString())) {
         continue;
@@ -87,7 +106,7 @@ export async function parseChanel({
           message: modyfied_text_ru,
           schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         }),
-        client.sendMessage(my_chanel_url_ru, {
+        client.sendMessage(my_chanel_url_en, {
           message: modyfied_text_en,
           schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         }),

@@ -1,6 +1,10 @@
 import { openai } from "../api/ai_api_connect.js";
 
-export const editTextToAi = async (text: string,system_promt:string, temperature?: number): Promise<string> => {
+export const editTextToAi = async (
+  text: string,
+  system_promt: string,
+  temperature?: number,
+): Promise<string> => {
   try {
     const chatCompletion = await openai.chat.completions.create({
       model: `${process.env.AI_MODEL}`,
@@ -8,7 +12,7 @@ export const editTextToAi = async (text: string,system_promt:string, temperature
       messages: [
         {
           role: "system",
-          content:system_promt,
+          content: system_promt,
         },
         {
           role: "user",
