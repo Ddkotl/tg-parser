@@ -1,4 +1,5 @@
 import { sleep } from "../sleep.js";
+import type { SupportedLang } from "./types.js";
 
 const ERROR_PATTERNS = [
   "не могу выполнить",
@@ -64,19 +65,21 @@ const containsError = (response: string): boolean => {
   return ERROR_PATTERNS.some((pattern) => response.toLowerCase().includes(pattern));
 };
 
-export const safeTranslate = async (
+export const safeAiAsk = async (
   text: string,
-  translateFunction: (text: string, temperature?: number) => Promise<string>,
+  system_promt: string,
+  aiFunction: (text: string, system_promt: string, temperature?: number) => Promise<string>,
   temperature?: number,
   retries: number = 50,
 ): Promise<string> => {
   for (let i = 0; i < retries; i++) {
     try {
       await sleep(1000);
-      const response = await translateFunction(text, temperature);
+      const response = await aiFunction(text, system_promt, temperature);
       if (response && !containsError(response)) {
         return response;
       }
+      console.log(response);
       console.log(`Попытка ${i + 1} не удалась, повторяем...`);
     } catch (error) {
       console.log(`Ошибка перевода (попытка ${i + 1}):`, error);
