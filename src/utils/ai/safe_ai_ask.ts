@@ -79,7 +79,7 @@ export const safeAiAsk = async (
       if (response && !containsError(response)) {
         return response;
       }
-      console.log(response);
+      //console.log(response);
       console.log(`Попытка ${i + 1} не удалась, повторяем...`);
     } catch (error) {
       console.log(`Ошибка перевода (попытка ${i + 1}):`, error);

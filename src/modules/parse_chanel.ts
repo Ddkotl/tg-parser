@@ -1,6 +1,7 @@
 import { Api, type TelegramClient } from "telegram";
 import { editTextToAi } from "../utils/ai/edit_text_to_ai.js";
 import { safeAiAsk } from "../utils/ai/safe_ai_ask.js";
+import { isAdPost } from "../utils/is_ad_post.js";
 
 export async function parseChanel({
   client,
@@ -25,45 +26,29 @@ export async function parseChanel({
   const messages = await client.getMessages(channel, {
     limit: post_count,
   });
-  console.log("mesgs", messages.length);
-  console.log(messages)
-  // messages.forEach((msg) => {
-  //   console.log({
-  //     id: msg.id,
-  //     text: msg.message?.substring(0, 50), // первые 50 символов
-  //     date: msg.date,
-  //     is_outgoing: msg.out, // отправлено ли твоим аккаунтом
-  //     is_forwarded: msg.fwdFrom, // пересланное сообщение
-  //     is_scheduled: msg.fromScheduled, // отложенное сообщение
-  //     groupid: msg.groupedId,
-  //     media:!!msg.media,
-  //     editHide: msg.editHide,
-  //     legacy:msg.legacy,
-  //     restricion:msg.restrictionReason
-  //   });
-  // });
+  //console.log("mesgs", messages.length);
+  //console.log(messages)
   let counter = 1;
   const exception: string[] = [];
+
   for (const msg of messages.reverse()) {
-    if (msg.fwdFrom) continue;
-    if (msg.editHide || msg.legacy || msg.restrictionReason) continue;
+    if (msg.fwdFrom || msg.pinned || !msg.post) continue;
     const text = msg.message;
     if (!text) continue;
-    if (!text && !msg.media && !msg.groupedId) continue;
-    console.log("text", text.slice(0, 50));
+    const is_ad_post = isAdPost(text);
+    if (is_ad_post) continue;
     const [modyfied_text_ru, modyfied_text_en] = await Promise.all([
       safeAiAsk(text, system_ai_promt_ru, editTextToAi, 0.3),
       safeAiAsk(text, system_ai_promt_en, editTextToAi, 0.3),
     ]);
-    console.log("ru", modyfied_text_ru.slice(0, 50));
-    console.log("en", modyfied_text_en.slice(0, 50));
+
     const media = msg.media;
     const date = msg.date;
-    // const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);
-    // if (diff_hours >= diff_hour) {
-    // continue;
-    //}
-    if (msg.groupedId !== undefined && msg.groupedId !== null) {
+    const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);
+    if (diff_hours >= diff_hour) {
+      continue;
+    }
+    if (msg.groupedId) {
       if (exception.includes(msg.groupedId.toString())) {
         continue;
       }

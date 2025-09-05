@@ -13,7 +13,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     my_chanel_url_ru: "https://t.me/star_eliksir",
     my_chanel_url_en: "https://t.me/star_elixir",
     post_count: 10,
-    diff_hour: 30,
+    diff_hour: 2,
     system_ai_promt_ru: `
     Ты профессиональный редактор Telegram-канала.
     Задачи:
