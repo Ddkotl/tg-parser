@@ -7,12 +7,8 @@ export type ParseChanelConfigData = {
   system_ai_promt_ru: string;
   system_ai_promt_en: string;
 };
-export const chanels_parser_config: ParseChanelConfigData[] = [
-  {
-    parsed_chanel_url: "https://t.me/Goroskop",
-    my_chanel_url_ru: "https://t.me/star_eliksir",
-    my_chanel_url_en: "https://t.me/star_elixir",
-    post_count: 10,
+const standart_config_data={
+post_count: 10,
     diff_hour: 2,
     system_ai_promt_ru: `
     Ты профессиональный редактор Telegram-канала.
@@ -44,5 +40,16 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
                                                                                                                       
   Answer strictly in the format of a post, without comments or explanations.
   `,
+}
+export const chanels_parser_config: ParseChanelConfigData[] = [
+  {
+    parsed_chanel_url: "https://t.me/Goroskop",
+    my_chanel_url_ru: "https://t.me/star_eliksir",
+    my_chanel_url_en: "https://t.me/star_elixir",
+    post_count: 
+    diff_hour: 
+    system_ai_promt_ru: 
+    system_ai_promt_en: 
+  
   },
 ];
