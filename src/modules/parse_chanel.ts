@@ -2,6 +2,8 @@ import { Api, type TelegramClient } from "telegram";
 import { editTextToAi } from "../utils/ai/edit_text_to_ai.js";
 import { safeAiAsk } from "../utils/ai/safe_ai_ask.js";
 import { isAdPost } from "../utils/is_ad_post.js";
+import { getLinkToImg } from "../utils/get_link_to_img.js";
+import { publishToInstagram } from "../public_content/public_inst.js";
 
 export async function parseChanel({
   client,
@@ -12,6 +14,7 @@ export async function parseChanel({
   diff_hour,
   system_ai_promt_ru,
   system_ai_promt_en,
+  post_to_inst,
 }: {
   client: TelegramClient;
   parsed_chanel_url: string;
@@ -21,6 +24,7 @@ export async function parseChanel({
   diff_hour: number;
   system_ai_promt_ru: string;
   system_ai_promt_en: string;
+  post_to_inst: boolean;
 }) {
   const channel = await client.getEntity(parsed_chanel_url);
   const messages = await client.getMessages(channel, {
@@ -86,6 +90,18 @@ export async function parseChanel({
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         }),
       ]);
+      if (post_to_inst) {
+        const buffer = await client.downloadMedia(msg);
+        console.log(buffer);
+        if (!buffer || !(buffer instanceof Buffer)) {
+          console.log("Не удалось скачать медиа из Telegram");
+          continue;
+        }
+
+        const url = await getLinkToImg(buffer, "telegram.jpg");
+        console.log("Catbox URL:", url);
+        await publishToInstagram({ text: modyfied_text_ru, img: url });
+      }
     } else {
       await Promise.allSettled([
         client.sendMessage(my_chanel_url_ru, {
