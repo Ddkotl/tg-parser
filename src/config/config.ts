@@ -6,11 +6,12 @@ export type ParseChanelConfigData = {
   diff_hour: number;
   system_ai_promt_ru: string;
   system_ai_promt_en: string;
+  post_to_inst: boolean;
 };
-const standart_config_data={
-post_count: 10,
-    diff_hour: 2,
-    system_ai_promt_ru: `
+const standart_config_data = {
+  post_count: 10,
+  diff_hour: 2,
+  system_ai_promt_ru: `
     Ты профессиональный редактор Telegram-канала.
     Задачи:
     - Сделай уникальный контент (перефразируй текст, добавь живости).
@@ -25,7 +26,7 @@ post_count: 10,
                                                                                                                                 
     Отвечай строго в формате поста, без комментариев и пояснений.
   `,
-    system_ai_promt_en: `
+  system_ai_promt_en: `
   You are a professional Telegram channel editor.
   Tasks:
   - Make the content unique (paraphrase, add liveliness).
@@ -40,7 +41,7 @@ post_count: 10,
                                                                                                                       
   Answer strictly in the format of a post, without comments or explanations.
   `,
-}
+};
 export const chanels_parser_config: ParseChanelConfigData[] = [
   {
     parsed_chanel_url: "https://t.me/Goroskop",
@@ -49,7 +50,8 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
-    system_ai_promt_en: standart_config_data.system_ai_promt_en
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    post_to_inst: false,
   },
   {
     parsed_chanel_url: "https://t.me/WatcherGuru",
@@ -58,6 +60,17 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
-    system_ai_promt_en: standart_config_data.system_ai_promt_en
-  }
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    post_to_inst: true,
+  },
+  {
+    parsed_chanel_url: "https://t.me/investnetworkai1",
+    my_chanel_url_ru: "",
+    my_chanel_url_en: "",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    post_to_inst: true,
+  },
 ];

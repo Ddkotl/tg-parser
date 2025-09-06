@@ -21,6 +21,7 @@ export async function parseChanel({
   diff_hour: number;
   system_ai_promt_ru: string;
   system_ai_promt_en: string;
+  post_to_inst: boolean;
 }) {
   const channel = await client.getEntity(parsed_chanel_url);
   const messages = await client.getMessages(channel, {
