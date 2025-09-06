@@ -47,9 +47,7 @@ const ERROR_PATTERNS = [
   "request limit",
   "requests limit",
   "error",
-  "data",
   "content",
-  "role",
   "bot limit",
   "limit exceeded",
   "blocked by",
@@ -62,7 +60,15 @@ const ERROR_PATTERNS = [
 ];
 
 const containsError = (response: string): boolean => {
-  return ERROR_PATTERNS.some((pattern) => response.toLowerCase().includes(pattern));
+  const lower = response.toLowerCase();
+  const match = ERROR_PATTERNS.find((pattern) => lower.includes(pattern));
+
+  if (match) {
+    console.log(`[containsError] Найдена ошибка! Шаблон: "${match}" в ответе: "${response}"`);
+    return true;
+  }
+
+  return false;
 };
 
 export const safeAiAsk = async (
@@ -79,7 +85,6 @@ export const safeAiAsk = async (
       if (response && !containsError(response)) {
         return response;
       }
-      //console.log(response);
       console.log(`Попытка ${i + 1} не удалась, повторяем...`);
     } catch (error) {
       console.log(`Ошибка перевода (попытка ${i + 1}):`, error);

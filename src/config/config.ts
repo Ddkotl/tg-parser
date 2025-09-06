@@ -65,8 +65,8 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
   },
   {
     parsed_chanel_url: "https://t.me/investnetworkai1",
-    my_chanel_url_ru: "",
-    my_chanel_url_en: "",
+    my_chanel_url_ru: "https://t.me/blockchain_insaid",
+    my_chanel_url_en: "https://t.me/blockchain_radars",
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,

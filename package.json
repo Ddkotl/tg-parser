@@ -10,7 +10,7 @@
     "startlog": "node ./dist/index.js > logs.txt 2>&1 ",
     "prettier": "prettier . -w",
     "testai": "tsx src/utils/ai/test_ai.ts",
-    "testinst":"tsx src/public_content/public_inst.ts"
+    "testinst": "tsx src/public_content/public_inst.ts"
   },
   "author": "",
   "license": "ISC",
