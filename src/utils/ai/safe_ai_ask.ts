@@ -1,5 +1,4 @@
 import { sleep } from "../sleep.js";
-import type { SupportedLang } from "./types.js";
 
 const ERROR_PATTERNS = [
   "не могу выполнить",

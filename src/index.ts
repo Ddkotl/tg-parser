@@ -15,26 +15,12 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
     apiHash: apiHash,
     SESSION_FILE: SESSION_FILE,
   });
-  const results = await Promise.allSettled(
-    chanels_parser_config.map((conf) =>
-      parseChanel({
-        client,
-        ...conf,
-      }),
-    ),
-  );
 
-  results.forEach((res, i) => {
-    const conf = chanels_parser_config[i];
-    if (res.status === "fulfilled") {
-      console.log(`✅ Канал "${conf?.parsed_chanel_url}" успешно обработан`);
-    } else {
-      console.error(`❌ Ошибка в канале "${conf?.parsed_chanel_url}":`, res.reason);
-    }
-  });
+ for (const config of chanels_parser_config) {
+  await parseChanel({ client, config });
+}
 
   console.log("📨 Все задачи завершены.");
   await client.disconnect();
   process.exit(0);
 })();
-// 0 */3 * * * . $HOME/.nvm/nvm.sh cd $HOME/bash_scripsts/www/tg-parser && npm run start >> $HOME/bash_scripsts/www/tg-parser/npm-start.log 2>&1
