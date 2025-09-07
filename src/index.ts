@@ -16,9 +16,9 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
     SESSION_FILE: SESSION_FILE,
   });
 
- for (const config of chanels_parser_config) {
-  await parseChanel({ client, config });
-}
+  for (const config of chanels_parser_config) {
+    await parseChanel({ client, config });
+  }
 
   console.log("📨 Все задачи завершены.");
   await client.disconnect();

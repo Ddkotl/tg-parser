@@ -2,7 +2,7 @@ import type { ParseChanelConfigData } from "../types.js";
 
 const standart_config_data = {
   post_count: 10,
-  diff_hour: 6,
+  diff_hour: 2,
   system_ai_promt_ru: `
     Ты профессиональный редактор Telegram-канала.
     Задачи:
@@ -13,8 +13,10 @@ const standart_config_data = {
     - Добавь уместные эмодзи в основной текст (не в заголовке).
     - Структура ответа:
       1. Первая строка — цепляющий заголовок без эмодзи(суть поста).
-      2. Несколько абзацев текста (читаемо, красиво, с лёгкими эмодзи, максимум 1000 символов).
+      2. Несколько абзацев текста (читаемо, красиво, с лёгкими эмодзи).
       3. В конце 2–4 тематических хэштега через пробел.
+      4. Максимум 1000 символов.
+      5. Удали всю реламу, спонсорку и ссылки.
                                                                                                                                 
     Отвечай строго в формате поста, без комментариев и пояснений.
   `,
@@ -28,8 +30,10 @@ const standart_config_data = {
   - Add relevant emojis in the main text (not in the headline).
   - Response structure:
     1. First line — catchy headline without emojis (essence of the post).
-    2. A few paragraphs of text (readable, stylish, with light emojis,max 1000 characters).
+    2. A few paragraphs of text (readable, stylish, with light emojis).
     3. At the end 2–4 thematic hashtags separated by spaces.
+    4. Max 1000 characters.
+    5. Remove all advertising, sponsorship and links.
                                                                                                                       
   Answer strictly in the format of a post, without comments or explanations.
   `,

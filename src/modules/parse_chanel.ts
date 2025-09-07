@@ -6,6 +6,7 @@ import { getLinkToImg } from "../utils/get_link_to_img.js";
 import { publishToInstagram } from "../public_content/public_inst.js";
 import { cleaneAiText } from "../utils/ai/cleane_ai_text.js";
 import type { ParseChanelData } from "../types.js";
+import { publishCarouselToInstagram } from "../public_content/publish_carusel_to_inst.js";
 
 export async function parseChanel({ client, config }: ParseChanelData) {
   const channel = await client.getEntity(config.parsed_chanel_url);
@@ -65,18 +66,38 @@ export async function parseChanel({ client, config }: ParseChanelData) {
           forceDocument: false,
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
         });
+        if (msg.groupedId) {
+          // 📌 альбом
+          const buffers: Buffer[] = [];
+          for (const file of files) {
+            const buf = await client.downloadMedia(file);
+            if (buf && buf instanceof Buffer) buffers.push(buf);
+          }
+
+          if (buffers.length > 0) {
+            // грузим все фото на Catbox
+            const urls: string[] = [];
+            for (let i = 0; i < buffers.length; i++) {
+              const url = await getLinkToImg(buffers[i] as Buffer, `telegram_album_${i}.jpg`);
+              urls.push(url);
+            }
+
+            console.log("Catbox URLs (album):", urls);
+            await publishCarouselToInstagram({ text: modyfied_text_ru, imgs: urls });
+          }
+        }
       }
     } else if (media && media instanceof Api.MessageMediaPhoto) {
-      (await client.sendFile(config.my_chanel_url_ru, {
+      await client.sendFile(config.my_chanel_url_ru, {
         file: media,
         caption: modyfied_text_ru,
         scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-      }),
-        await client.sendFile(config.my_chanel_url_en, {
-          file: media,
-          caption: modyfied_text_en,
-          scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-        }));
+      });
+      await client.sendFile(config.my_chanel_url_en, {
+        file: media,
+        caption: modyfied_text_en,
+        scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+      });
       if (config.post_to_inst) {
         const buffer = await client.downloadMedia(msg);
         if (!buffer || !(buffer instanceof Buffer)) {
