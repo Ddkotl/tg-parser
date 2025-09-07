@@ -1,5 +1,4 @@
 import { sleep } from "../sleep.js";
-import type { SupportedLang } from "./types.js";
 
 const ERROR_PATTERNS = [
   "не могу выполнить",
@@ -47,7 +46,6 @@ const ERROR_PATTERNS = [
   "request limit",
   "requests limit",
   "error",
-  "content",
   "bot limit",
   "limit exceeded",
   "blocked by",

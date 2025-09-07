@@ -1,13 +1,5 @@
-export type ParseChanelConfigData = {
-  parsed_chanel_url: string;
-  my_chanel_url_ru: string;
-  my_chanel_url_en: string;
-  post_count: number;
-  diff_hour: number;
-  system_ai_promt_ru: string;
-  system_ai_promt_en: string;
-  post_to_inst: boolean;
-};
+import type { ParseChanelConfigData } from "../types.js";
+
 const standart_config_data = {
   post_count: 10,
   diff_hour: 2,
@@ -23,6 +15,8 @@ const standart_config_data = {
       1. Первая строка — цепляющий заголовок без эмодзи(суть поста).
       2. Несколько абзацев текста (читаемо, красиво, с лёгкими эмодзи).
       3. В конце 2–4 тематических хэштега через пробел.
+      4. Максимум 1000 символов.
+      5. Удали всю реламу, спонсорку и ссылки.
                                                                                                                                 
     Отвечай строго в формате поста, без комментариев и пояснений.
   `,
@@ -38,9 +32,12 @@ const standart_config_data = {
     1. First line — catchy headline without emojis (essence of the post).
     2. A few paragraphs of text (readable, stylish, with light emojis).
     3. At the end 2–4 thematic hashtags separated by spaces.
+    4. Max 1000 characters.
+    5. Remove all advertising, sponsorship and links.
                                                                                                                       
   Answer strictly in the format of a post, without comments or explanations.
   `,
+  ai_temperature: 0.1,
 };
 export const chanels_parser_config: ParseChanelConfigData[] = [
   {
@@ -51,6 +48,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
     system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: false,
   },
   {
@@ -61,6 +59,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
     system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: true,
   },
   {
@@ -71,6 +70,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
     system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: true,
   },
 ];

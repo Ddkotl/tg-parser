@@ -1,5 +1,5 @@
+import type { SupportedLang } from "../../types.js";
 import { openai } from "../api/ai_api_connect.js";
-import type { SupportedLang } from "./types.js";
 
 export const translateTextToAi = async (
   text: string,
