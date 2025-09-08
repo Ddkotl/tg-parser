@@ -1,8 +1,8 @@
-import { openai } from "../api/ai_api_connect.js";
+import { openai, TEXT_AI_MODELS } from "../api/ai_api_connect.js";
 
 async function test() {
   const res = await openai.chat.completions.create({
-    model: `${process.env.AI_MODEL}`,
+    model: `${TEXT_AI_MODELS[0]}`,
     messages: [
       {
         role: "system",
