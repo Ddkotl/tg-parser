@@ -42,8 +42,8 @@ const standart_config_data = {
 export const chanels_parser_config: ParseChanelConfigData[] = [
   {
     parsed_chanel_url: "https://t.me/Goroskop",
-    my_chanel_url_ru: "https://t.me/star_eliksir",
-    my_chanel_url_en: "https://t.me/star_elixir",
+    my_chanel_url_ru: "https://t.me/+59pIAM0g5poyYTMy",
+    my_chanel_url_en: "https://t.me/+IDlwRbKAqn0yNjY6",
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
