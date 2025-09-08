@@ -1,3 +1,4 @@
+import { TEXT_AI_MODELS } from "../api/ai_api_connect.js";
 import { sleep } from "../sleep.js";
 
 const ERROR_PATTERNS = [
@@ -66,7 +67,7 @@ const containsError = (response: string): boolean => {
   const match = ERROR_PATTERNS.find((pattern) => lower.includes(pattern));
 
   if (match) {
-    console.log(`[containsError] Найдена ошибка! Шаблон: "${match}" в ответе: "${response}"`);
+    console.log(`[containsError] Найдена ошибка! Шаблон: "${match}" в ответе: `);
     return true;
   }
 
@@ -76,15 +77,24 @@ const containsError = (response: string): boolean => {
 export const safeAiAsk = async (
   text: string,
   system_promt: string,
-  aiFunction: (text: string, system_promt: string, temperature?: number) => Promise<string>,
+  aiFunction: (
+    ai_model: string,
+    text: string,
+    system_promt: string,
+    temperature?: number,
+  ) => Promise<string>,
   temperature?: number,
   retries: number = 50,
 ): Promise<string> => {
   for (let i = 0; i < retries; i++) {
+    const model_count = TEXT_AI_MODELS.length;
+    const current_ai_model = TEXT_AI_MODELS[i % model_count]!;
     try {
+      console.log("use : ", current_ai_model);
       await sleep(1000);
-      const response = await aiFunction(text, system_promt, temperature);
+      const response = await aiFunction(current_ai_model, text, system_promt, temperature);
       if (response && !containsError(response)) {
+        console.log("ai ok");
         return response;
       }
       console.log(`Попытка ${i + 1} не удалась, повторяем...`);

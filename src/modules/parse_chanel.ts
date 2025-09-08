@@ -16,14 +16,14 @@ export async function parseChanel({ client, config }: ParseChanelData) {
 
   let counter = 1;
   const exception: string[] = [];
-
+  const start_parse_data = Date.now();
   for (const msg of messages.reverse()) {
     if (msg.fwdFrom || msg.pinned || !msg.post) continue;
     const text = msg.message;
     if (!text) continue;
     const media = msg.media;
     const date = msg.date;
-    const diff_hours = (Math.floor(Date.now() / 1000) - date) / (60 * 60);
+    const diff_hours = (Math.floor(start_parse_data / 1000) - date) / (60 * 60);
     if (diff_hours >= config.diff_hour) {
       continue;
     }

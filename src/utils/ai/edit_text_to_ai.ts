@@ -1,13 +1,14 @@
 import { openai } from "../api/ai_api_connect.js";
 
 export const editTextToAi = async (
+  ai_model: string,
   text: string,
   system_promt: string,
   temperature?: number,
 ): Promise<string> => {
   try {
     const chatCompletion = await openai.chat.completions.create({
-      model: `${process.env.AI_MODEL}`,
+      model: ai_model,
       temperature: temperature ?? 0.5,
       messages: [
         {
