@@ -58,6 +58,10 @@ const ERROR_PATTERNS = [
 ];
 
 const containsError = (response: string): boolean => {
+  if (response.length >= 1000) {
+    console.log(`[containsError] Ответ слишком длинный: ${response.length} символов`);
+    return true;
+  }
   const lower = response.toLowerCase();
   const match = ERROR_PATTERNS.find((pattern) => lower.includes(pattern));
 
