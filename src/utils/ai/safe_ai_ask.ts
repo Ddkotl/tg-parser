@@ -84,14 +84,14 @@ export const safeAiAsk = async (
     temperature?: number,
   ) => Promise<string>,
   temperature?: number,
-  retries: number = 50,
+  retries: number = 100,
 ): Promise<string> => {
   for (let i = 0; i < retries; i++) {
     const model_count = TEXT_AI_MODELS.length;
     const current_ai_model = TEXT_AI_MODELS[i % model_count]!;
     try {
       console.log("use : ", current_ai_model);
-      await sleep(1000);
+      await sleep(10000);
       const response = await aiFunction(current_ai_model, text, system_promt, temperature);
       if (response && !containsError(response)) {
         console.log("ai ok");
