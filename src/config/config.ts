@@ -52,6 +52,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     post_to_inst: false,
   },
   {
+    parsed_chanel_url: "https://t.me/PsyEducation",
+    my_chanel_url_ru: "https://t.me/+2utX-kvrW6AxYjRi",
+    my_chanel_url_en: "https://t.me/+sIFwNUn2VVo5YWZi",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: false,
+  },
+
+  {
     parsed_chanel_url: "https://t.me/WatcherGuru",
     my_chanel_url_ru: "https://t.me/cripto_digest",
     my_chanel_url_en: "https://t.me/cripto_digest_en",
