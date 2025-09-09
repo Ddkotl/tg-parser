@@ -1,6 +1,6 @@
 import type { ParseChanelConfigData } from "../types.js";
 
-const standart_config_data = {
+export const standart_config_data = {
   post_count: 10,
   diff_hour: 2,
   system_ai_promt_ru: `
