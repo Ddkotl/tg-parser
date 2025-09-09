@@ -9,8 +9,9 @@
     "start": "node ./dist/index.js",
     "startlog": "node ./dist/index.js > logs.txt 2>&1 ",
     "prettier": "prettier . -w",
-    "testai": "tsx src/utils/ai/test_ai.ts",
-    "testinst": "tsx src/public_content/public_inst.ts"
+    "testai": "tsx src/utils/ai/test/test_ai.ts > test_ai.txt 2>&1",
+    "testinst": "tsx src/public_content/public_inst.ts",
+    "gwm": "tsx src/utils/ai/test/get_working_models.ts > working_models.txt 2>&1"
   },
   "author": "",
   "license": "ISC",

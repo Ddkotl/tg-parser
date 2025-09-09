@@ -1,0 +1,91 @@
+[dotenv@17.2.2] injecting env (5) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+go model :  gpt-4o
+Kazakhstan to set up national crypto reserve
+
+President Kassym-Jomart Tokayev has proposed creating a State Fund of Digital Assets to build a strategic crypto reserve 🇰🇿. The fund, to be placed under the Investment Corporation of the National Bank, should consolidate promising assets within the emerging digital financial ecosystem 🪙💼.
+
+Separately, the digital tenge is to be extended for use in both republican and local budgets, and the government was tasked with preparing an investment program focused on high-tech sectors to boost the economy 📈💡.
+
+The move aims to formalize state participation in digital assets and channel resources into technologically advanced industries 🏛️🔍
+
+#Kazakhstan #Crypto #DigitalTenge
+go model :  gpt-4.1
+error in model :  gpt-4.1 AuthenticationError: 401 MissingAuthError: Add a "api_key"
+    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:76:14)
+    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
+    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:23) {
+  status: 401,
+  headers: Headers {
+    date: 'Tue, 09 Sep 2025 16:28:14 GMT',
+    server: 'uvicorn',
+    'content-length': '84',
+    'content-type': 'application/json'
+  },
+  requestID: null,
+  error: { message: 'MissingAuthError: Add a "api_key"' },
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+go model :  gpt-4
+error in model :  gpt-4 AuthenticationError: 401 MissingAuthError: Add a "api_key"
+    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:76:14)
+    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
+    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:23) {
+  status: 401,
+  headers: Headers {
+    date: 'Tue, 09 Sep 2025 16:28:14 GMT',
+    server: 'uvicorn',
+    'content-length': '84',
+    'content-type': 'application/json'
+  },
+  requestID: null,
+  error: { message: 'MissingAuthError: Add a "api_key"' },
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+go model :  gpt-4o-mini
+error in model :  gpt-4o-mini AuthenticationError: 401 MissingAuthError: Add a "api_key"
+    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:76:14)
+    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
+    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:23) {
+  status: 401,
+  headers: Headers {
+    date: 'Tue, 09 Sep 2025 16:28:14 GMT',
+    server: 'uvicorn',
+    'content-length': '84',
+    'content-type': 'application/json'
+  },
+  requestID: null,
+  error: { message: 'MissingAuthError: Add a "api_key"' },
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
+go model :  gpt-3.5-turbo
+error in model :  gpt-3.5-turbo AuthenticationError: 401 MissingAuthError: API key is required for Puter.js API
+    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:76:14)
+    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
+    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:23) {
+  status: 401,
+  headers: Headers {
+    date: 'Tue, 09 Sep 2025 16:28:14 GMT',
+    server: 'uvicorn',
+    'content-length': '103',
+    'content-type': 'application/json'
+  },
+  requestID: null,
+  error: { message: 'MissingAuthError: API key is required for Puter.js API' },
+  code: undefined,
+  param: undefined,
+  type: undefined
+}
