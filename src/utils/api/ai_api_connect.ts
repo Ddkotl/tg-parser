@@ -7,8 +7,6 @@ export const openai = new OpenAI({
   baseURL: `http://localhost:${process.env.G4F_PORT}/v1`,
 });
 export const TEXT_AI_MODELS = [
-  "gpt-5",
-  "deepseek-v3",
   "gpt-4.5",
   "gpt-4o",
   "gpt-4",
