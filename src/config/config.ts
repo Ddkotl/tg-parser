@@ -42,8 +42,8 @@ export const standart_config_data = {
 export const chanels_parser_config: ParseChanelConfigData[] = [
   {
     parsed_chanel_url: "https://t.me/Goroskop",
-    my_chanel_url_ru: "https://t.me/+59pIAM0g5poyYTMy",
-    my_chanel_url_en: "https://t.me/+IDlwRbKAqn0yNjY6",
+    my_chanel_url_ru: "-1002650446328",
+    my_chanel_url_en: "-1003079394204",
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
@@ -53,8 +53,8 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
   },
   {
     parsed_chanel_url: "https://t.me/PsyEducation",
-    my_chanel_url_ru: "https://t.me/+2utX-kvrW6AxYjRi",
-    my_chanel_url_en: "https://t.me/+sIFwNUn2VVo5YWZi",
+    my_chanel_url_ru: "-1002740351168",
+    my_chanel_url_en: "-1002809518283",
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
@@ -87,6 +87,17 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
   },
   {
     parsed_chanel_url: "https://t.me/crypnews247",
+    my_chanel_url_ru: "https://t.me/cripto_maining",
+    my_chanel_url_en: "https://t.me/crypto_serp",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: true,
+  },
+  {
+    parsed_chanel_url: "https://t.me/incrypted",
     my_chanel_url_ru: "https://t.me/cript_pulse",
     my_chanel_url_en: "https://t.me/cripto_pyls",
     post_count: standart_config_data.post_count,

@@ -56,6 +56,7 @@ const ERROR_PATTERNS = [
   "limit of this model is reached",
   "502 Bad Gateway",
   "502",
+  "sponsor",
 ];
 
 const containsError = (response: string): boolean => {

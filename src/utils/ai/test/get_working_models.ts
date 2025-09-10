@@ -287,9 +287,9 @@ function extractModels(input: string) {
   return input
     .trim()
     .split("\n")
-    .map(line => line.split("|"))
-    .filter(parts => parts.length === 3 && parts[2] === "text") 
-    .map(parts => parts[1]); 
+    .map((line) => line.split("|"))
+    .filter((parts) => parts.length === 3 && parts[2] === "text")
+    .map((parts) => parts[1]);
 }
 
 const models = extractModels(data);
