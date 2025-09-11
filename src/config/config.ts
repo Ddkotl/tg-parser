@@ -97,6 +97,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     post_to_inst: true,
   },
   {
+    parsed_chanel_url: "https://t.me/crypto_hike",
+    my_chanel_url_ru: "https://t.me/cripto_maining",
+    my_chanel_url_en: "https://t.me/crypto_serp",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: true,
+  },
+
+  {
     parsed_chanel_url: "https://t.me/incrypted",
     my_chanel_url_ru: "https://t.me/cript_pulse",
     my_chanel_url_en: "https://t.me/cripto_pyls",

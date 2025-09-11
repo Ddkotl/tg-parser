@@ -38,6 +38,7 @@ export function isAdPost(text: string) {
     "оферта",
     "условия акции",
     "правила акции",
+    "incrypted",
   ];
 
   // Проверяем наличие ключевых слов

@@ -91,12 +91,14 @@ export async function parseChanel({ client, config }: ParseChanelData) {
       await client.sendFile(config.my_chanel_url_ru, {
         file: media,
         caption: modyfied_text_ru,
-        scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+        scheduleDate:
+          Math.floor(Date.now() / 1000) + counter * 60 * 5
       });
       await client.sendFile(config.my_chanel_url_en, {
         file: media,
         caption: modyfied_text_en,
-        scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+        scheduleDate:
+          Math.floor(Date.now() / 1000) + counter * 60 * 5
       });
       if (config.post_to_inst) {
         const buffer = await client.downloadMedia(msg);
