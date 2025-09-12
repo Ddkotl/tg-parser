@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.1",
+    "g4f": "^1.4.6",
     "openai": "^5.16.0",
     "telegram": "^2.26.22"
   }

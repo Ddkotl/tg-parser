@@ -75,6 +75,12 @@ const ERROR_PATTERNS = [
   "有",
   "没",
   "有",
+  "关",
+  "于",
+  "你",
+  "won’t discuss those sensitive topics",
+  "который вы предоставили",
+  "cant engage in discussions",
 ];
 
 const containsError = (response: string): boolean => {
