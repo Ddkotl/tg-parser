@@ -2,4 +2,5 @@
 /dist
 .env
 session.txt
+test_ai.txt
 /har_and_cookies
