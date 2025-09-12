@@ -5,7 +5,7 @@ async function test() {
     console.log("go model : ", model);
     try {
       const res = await openai.chat.completions.create({
-        model: "gpt-5-mini",
+        model: model,
         messages: [
           {
             role: "system",
