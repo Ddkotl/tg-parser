@@ -1,0 +1,235 @@
+[dotenv@17.2.2] injecting env (5) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+🔄 Подключение к Telegram...
+[33m[2025-09-16T17:23:36.028] [INFO] - [Running gramJS version 2.26.21][0m
+[33m[2025-09-16T17:23:36.031] [INFO] - [Connecting to 149.154.167.50:80/TCPFull...][0m
+[33m[2025-09-16T17:23:36.036] [INFO] - [Connection to 149.154.167.50:80/TCPFull complete!][0m
+[33m[2025-09-16T17:23:36.037] [INFO] - [Using LAYER 198 for initial connect][0m
+✅ Успешно подключились!
+💾 Сессия сохранена в /workspaces/tg-parser/session.txt
+[2025-09-16T17:23:36.215Z] 🚀 START: Начинаем парсинг канала Знаки зодиака на Сегодня...
+[2025-09-16T17:23:36.426Z] 📩 FETCH: Найдено 10 сообщений в канале.
+[2025-09-16T17:23:36.426Z] ⚡ MESSAGE: Обработка сообщения #1
+[2025-09-16T17:23:36.426Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.426Z] ⚡ MESSAGE: Обработка сообщения #2
+[2025-09-16T17:23:36.426Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.426Z] ⚡ MESSAGE: Обработка сообщения #3
+[2025-09-16T17:23:36.426Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.426Z] ⚡ MESSAGE: Обработка сообщения #4
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] ⚡ MESSAGE: Обработка сообщения #5
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] ⚡ MESSAGE: Обработка сообщения #6
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] ⚡ MESSAGE: Обработка сообщения #7
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] ⚡ MESSAGE: Обработка сообщения #8
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] ⚡ MESSAGE: Обработка сообщения #9
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] ⚡ MESSAGE: Обработка сообщения #10
+[2025-09-16T17:23:36.427Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.427Z] 🏁 END: Парсинг канала Знаки зодиака на Сегодня завершен.
+[2025-09-16T17:23:36.427Z] 🚀 START: Начинаем парсинг канала Психология...
+[2025-09-16T17:23:36.509Z] 📩 FETCH: Найдено 10 сообщений в канале.
+[2025-09-16T17:23:36.510Z] ⚡ MESSAGE: Обработка сообщения #1
+[2025-09-16T17:23:36.510Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.510Z] ⚡ MESSAGE: Обработка сообщения #2
+[2025-09-16T17:23:36.510Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.510Z] ⚡ MESSAGE: Обработка сообщения #3
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #4
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #5
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #6
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #7
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #8
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #9
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.511Z] ⚡ MESSAGE: Обработка сообщения #10
+[2025-09-16T17:23:36.511Z] ⏭ SKIP: Пересланное сообщение
+[2025-09-16T17:23:36.511Z] 🏁 END: Парсинг канала Психология завершен.
+[2025-09-16T17:23:36.511Z] 🚀 START: Начинаем парсинг канала Watcher Guru...
+[2025-09-16T17:23:36.578Z] 📩 FETCH: Найдено 10 сообщений в канале.
+[2025-09-16T17:23:36.578Z] ⚡ MESSAGE: Обработка сообщения #1
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #2
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение без текста
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #3
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #4
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение без текста
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #5
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #6
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение старше 2 часов
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #7
+[2025-09-16T17:23:36.579Z] ⏭ SKIP: Сообщение без текста
+[2025-09-16T17:23:36.579Z] ⚡ MESSAGE: Обработка сообщения #8
+[2025-09-16T17:23:36.580Z] 🤖 AI: Отправляем текст на обработку AI...
+use :  gpt-4o
+ai process post error APIConnectionError: Connection error.
+    at OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:292:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+    ... 2 lines matching cause stack trace ...
+    at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+  status: undefined,
+  headers: undefined,
+  requestID: undefined,
+  error: undefined,
+  code: undefined,
+  param: undefined,
+  type: undefined,
+  cause: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async OpenAI.fetchWithTimeout (file:///workspaces/tg-parser/node_modules/openai/client.mjs:368:20)
+      at async OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:259:26)
+      at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+      at async safeAiAsk (file:///workspaces/tg-parser/dist/utils/ai/safe_ai_ask.js:106:30)
+      at async parseChanel (file:///workspaces/tg-parser/dist/modules/parse_chanel.js:52:32)
+      at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Попытка 1 не удалась, повторяем...
+use :  gpt-4.1
+ai process post error APIConnectionError: Connection error.
+    at OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:292:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+    ... 2 lines matching cause stack trace ...
+    at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+  status: undefined,
+  headers: undefined,
+  requestID: undefined,
+  error: undefined,
+  code: undefined,
+  param: undefined,
+  type: undefined,
+  cause: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async OpenAI.fetchWithTimeout (file:///workspaces/tg-parser/node_modules/openai/client.mjs:368:20)
+      at async OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:259:26)
+      at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+      at async safeAiAsk (file:///workspaces/tg-parser/dist/utils/ai/safe_ai_ask.js:106:30)
+      at async parseChanel (file:///workspaces/tg-parser/dist/modules/parse_chanel.js:52:32)
+      at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Попытка 2 не удалась, повторяем...
+use :  gpt-4
+ai process post error APIConnectionError: Connection error.
+    at OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:292:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+    ... 2 lines matching cause stack trace ...
+    at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+  status: undefined,
+  headers: undefined,
+  requestID: undefined,
+  error: undefined,
+  code: undefined,
+  param: undefined,
+  type: undefined,
+  cause: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async OpenAI.fetchWithTimeout (file:///workspaces/tg-parser/node_modules/openai/client.mjs:368:20)
+      at async OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:259:26)
+      at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+      at async safeAiAsk (file:///workspaces/tg-parser/dist/utils/ai/safe_ai_ask.js:106:30)
+      at async parseChanel (file:///workspaces/tg-parser/dist/modules/parse_chanel.js:52:32)
+      at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Попытка 3 не удалась, повторяем...
+use :  gpt-4o-mini
+ai process post error APIConnectionError: Connection error.
+    at OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:292:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+    ... 2 lines matching cause stack trace ...
+    at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+  status: undefined,
+  headers: undefined,
+  requestID: undefined,
+  error: undefined,
+  code: undefined,
+  param: undefined,
+  type: undefined,
+  cause: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async OpenAI.fetchWithTimeout (file:///workspaces/tg-parser/node_modules/openai/client.mjs:368:20)
+      at async OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:259:26)
+      at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+      at async safeAiAsk (file:///workspaces/tg-parser/dist/utils/ai/safe_ai_ask.js:106:30)
+      at async parseChanel (file:///workspaces/tg-parser/dist/modules/parse_chanel.js:52:32)
+      at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Попытка 4 не удалась, повторяем...
+use :  gpt-3.5-turbo
+ai process post error APIConnectionError: Connection error.
+    at OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:292:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+    ... 2 lines matching cause stack trace ...
+    at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+  status: undefined,
+  headers: undefined,
+  requestID: undefined,
+  error: undefined,
+  code: undefined,
+  param: undefined,
+  type: undefined,
+  cause: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async OpenAI.fetchWithTimeout (file:///workspaces/tg-parser/node_modules/openai/client.mjs:368:20)
+      at async OpenAI.makeRequest (file:///workspaces/tg-parser/node_modules/openai/client.mjs:259:26)
+      at async editTextToAi (file:///workspaces/tg-parser/dist/utils/ai/edit_text_to_ai.js:4:32)
+      at async safeAiAsk (file:///workspaces/tg-parser/dist/utils/ai/safe_ai_ask.js:106:30)
+      at async parseChanel (file:///workspaces/tg-parser/dist/modules/parse_chanel.js:52:32)
+      at async file:///workspaces/tg-parser/dist/index.js:17:9 {
+    [cause]: AggregateError [ECONNREFUSED]: 
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Попытка 5 не удалась, повторяем...
+use :  gpt-4o
