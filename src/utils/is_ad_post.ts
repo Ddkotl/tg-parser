@@ -42,7 +42,7 @@ export function isAdPost(text: string) {
     "подписат",
     "subscrib",
     "видео",
-    "video"
+    "video",
   ];
 
   // Проверяем наличие ключевых слов

@@ -17,7 +17,7 @@ export const editTextToAi = async (
         },
         {
           role: "user",
-          content:`${system_promt}. Вот исходный текст:  ${text}` ,
+          content: `${system_promt}. Вот исходный текст:  ${text}`,
         },
       ],
     });

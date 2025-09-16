@@ -3,6 +3,7 @@ import type { TelegramClient } from "telegram";
 export type SupportedLang = "ru-RU" | "en-US";
 
 export type ParseChanelConfigData = {
+  parsed_chanel_name: string;
   parsed_chanel_url: string;
   my_chanel_url_ru: string;
   my_chanel_url_en: string;
