@@ -7,7 +7,7 @@ export const standart_config_data = {
     Ты профессиональный редактор Telegram-канала.
     Задачи:
     - Сделай уникальный контент (перефразируй текст, добавь живости, максимум 1000 символов).
-    - Переведи на русский язык, если текст не на русском.
+    - ВАЖНО! Переведи на русский язык, если текст не на русском языке.
     - Удали рекламу и упоминания чужих каналов.
     - Сохрани суть и факты, оформи красиво в стиле Telegram.
     - Не выдумывай информацию, используй только имеющуюся и изменяй.
@@ -21,7 +21,7 @@ export const standart_config_data = {
   You are a professional Telegram channel editor.
 Tasks:
 - Make unique content (rephrase the text, add some liveliness, maximum 1000 characters).
-- Translate into English if the text is not in English.
+- IMPORTANT! Translate into English if the text is not in English.
 - Remove ads and mentions of other channels.
 - Keep the essence and facts, design it beautifully in the Telegram style.
 - Do not invent information, use only what you have and change it.
@@ -79,6 +79,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: true,
   },
+  {
+        parsed_chanel_url: "https://t.me/topslivs",
+            my_chanel_url_ru: "https://t.me/blockchain_insaid",
+                my_chanel_url_en: "https://t.me/blockchain_radars",
+                    post_count: standart_config_data.post_count,
+                        diff_hour: standart_config_data.diff_hour,
+                            system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+                                system_ai_promt_en: standart_config_data.system_ai_promt_en,
+                                    ai_temperature: standart_config_data.ai_temperature,
+                                        post_to_inst: true,
+                                          },
+  
   {
     parsed_chanel_url: "https://t.me/crypnews247",
     my_chanel_url_ru: "https://t.me/cripto_maining",
