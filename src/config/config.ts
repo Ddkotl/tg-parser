@@ -36,21 +36,9 @@ IMPORTANT! Translate into English if the text is not in English.
   ai_temperature: 0.2,
 };
 export const chanels_parser_config: ParseChanelConfigData[] = [
-  // {
-  //   parsed_chanel_name:"Гороскоп циганки Луладжі",
-  //   parsed_chanel_url: "https://t.me/lulagoroskop",
-  //   my_chanel_url_ru: "-1002650446328",
-  //   my_chanel_url_en: "-1003079394204",
-  //   post_count: standart_config_data.post_count,
-  //   diff_hour: standart_config_data.diff_hour,
-  //   system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
-  //   system_ai_promt_en: standart_config_data.system_ai_promt_en,
-  //   ai_temperature: standart_config_data.ai_temperature,
-  //   post_to_inst: false,
-  // },
   {
-    parsed_chanel_name: "Знаки зодиака на Сегодня",
-    parsed_chanel_url: "https://t.me/Goroskop",
+    parsed_chanel_name: "Гороскоп циганки Луладжі",
+    parsed_chanel_url: "https://t.me/lulagoroskop",
     my_chanel_url_ru: "-1002650446328",
     my_chanel_url_en: "-1003079394204",
     post_count: standart_config_data.post_count,
@@ -60,6 +48,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: false,
   },
+  //{
+  // parsed_chanel_name: "Знаки зодиака на Сегодня",
+  // parsed_chanel_url: "https://t.me/Goroskop",
+  // my_chanel_url_ru: "-1002650446328",
+  // my_chanel_url_en: "-1003079394204",
+  //post_count: standart_config_data.post_count,
+  //  diff_hour: standart_config_data.diff_hour,
+  // system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+  // system_ai_promt_en: standart_config_data.system_ai_promt_en,
+  // ai_temperature: standart_config_data.ai_temperature,
+  //  post_to_inst: false,
+  //},
   {
     parsed_chanel_name: "Психология",
     parsed_chanel_url: "https://t.me/PsyEducation",

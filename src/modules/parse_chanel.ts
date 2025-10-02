@@ -27,8 +27,8 @@ export async function parseChanel({ client, config }: ParseChanelData) {
   const exception: string[] = [];
   const start_parse_data = Date.now();
 
-  for (const [idx,msg] of messages.reverse().entries()) {
-    log("MESSAGE", `Обработка сообщения #${idx+1}`, "⚡");
+  for (const [idx, msg] of messages.reverse().entries()) {
+    log("MESSAGE", `Обработка сообщения #${idx + 1}`, "⚡");
 
     const text = msg.message;
     if (!text) {
@@ -77,7 +77,11 @@ export async function parseChanel({ client, config }: ParseChanelData) {
     modyfied_text_ru = cleaneAiText(modyfied_text_ru);
     modyfied_text_en = cleaneAiText(modyfied_text_en);
 
-    log("AI", `Тексты подготовлены (RU: ${modyfied_text_ru.length} символов, EN: ${modyfied_text_en.length} символов).`, "✅");
+    log(
+      "AI",
+      `Тексты подготовлены (RU: ${modyfied_text_ru.length} символов, EN: ${modyfied_text_en.length} символов).`,
+      "✅",
+    );
 
     const media = msg.media;
 
