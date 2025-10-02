@@ -45,7 +45,7 @@ export function isAdPost(text: string) {
     "video",
     "vip",
     "вип",
-    "подпи"
+    "подпи",
   ];
 
   // Проверяем наличие ключевых слов
