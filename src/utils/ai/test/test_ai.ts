@@ -9,7 +9,7 @@ async function test() {
         messages: [
           {
             role: "system",
-            content: standart_config_data.system_ai_promt_en,
+            content: standart_config_data.system_ai_promt_ru,
           },
           {
             role: "user",

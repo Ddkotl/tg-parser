@@ -46,12 +46,12 @@ export function isAdPost(text: string) {
     "vip",
     "вип",
     "подпи",
-      "трансляц",
-  "видео",
-  "broadcast",
-  "video",
+    "трансляц",
+    "видео",
+    "broadcast",
+    "video",
     "sponsor",
-    "спонсор"
+    "спонсор",
   ];
 
   // Проверяем наличие ключевых слов

@@ -81,7 +81,7 @@ const ERROR_PATTERNS = [
   "который вы предоставили",
   "cant engage in discussions",
   "вот ваш",
-  "here is yours"
+  "here is yours",
 ];
 
 const containsError = (response: string): boolean => {
