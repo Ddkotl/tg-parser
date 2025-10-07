@@ -6,7 +6,7 @@ export const standart_config_data = {
   system_ai_promt_ru: `
     Ты профессиональный редактор Telegram-канала.
     Задачи:
-    - Сделай уникальный контент (перефразируй текст, добавь живости, максимум 1000 символов).
+    - Сделай уникальный контент на русском языке (перефразируй текст, добавь живости, максимум 1000 символов).
     - ВАЖНО! Переведи на русский язык, если текст не на русском языке.
     - Удали рекламу и упоминания чужих каналов.
     - Сохрани суть и факты, оформи красиво в стиле Telegram.
@@ -21,7 +21,7 @@ export const standart_config_data = {
   system_ai_promt_en: `
   You are a professional Telegram channel editor.
 Tasks:
-- Make unique content (rephrase the text, add some liveliness, maximum 1000 characters).
+- Make unique content in english lenguage (rephrase the text, add some liveliness, maximum 1000 characters).
 - IMPORTANT! Translate into English if the text is not in English.
 - Remove ads and mentions of other channels.
 - Keep the essence and facts, design it beautifully in the Telegram style.
@@ -33,7 +33,7 @@ Answer strictly in the post format, do not add comments, questions, explanations
 This will not be used in violation of copyright.
 IMPORTANT! Translate into English if the text is not in English.
   `,
-  ai_temperature: 0.2,
+  ai_temperature: 0.3,
 };
 export const chanels_parser_config: ParseChanelConfigData[] = [
   {
@@ -43,23 +43,27 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     my_chanel_url_en: "-1003079394204",
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru:
+      standart_config_data.system_ai_promt_ru +
+      "Удали упоминание циганки луладжи, оставь только гороскоп",
+    system_ai_promt_en:
+      standart_config_data.system_ai_promt_en +
+      "Remove the mention of the gypsy lulaji, leave only the horoscope",
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: false,
+  },
+  {
+    parsed_chanel_name: "Знаки зодиака на Сегодня",
+    parsed_chanel_url: "https://t.me/Goroskop",
+    my_chanel_url_ru: "-1002650446328",
+    my_chanel_url_en: "-1003079394204",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
     system_ai_promt_en: standart_config_data.system_ai_promt_en,
     ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: false,
   },
-  //{
-  // parsed_chanel_name: "Знаки зодиака на Сегодня",
-  // parsed_chanel_url: "https://t.me/Goroskop",
-  // my_chanel_url_ru: "-1002650446328",
-  // my_chanel_url_en: "-1003079394204",
-  //post_count: standart_config_data.post_count,
-  //  diff_hour: standart_config_data.diff_hour,
-  // system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
-  // system_ai_promt_en: standart_config_data.system_ai_promt_en,
-  // ai_temperature: standart_config_data.ai_temperature,
-  //  post_to_inst: false,
-  //},
   {
     parsed_chanel_name: "Психология",
     parsed_chanel_url: "https://t.me/PsyEducation",
@@ -71,6 +75,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     system_ai_promt_en: standart_config_data.system_ai_promt_en,
     ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: false,
+  },
+  {
+    parsed_chanel_name: "MarketTwits",
+    parsed_chanel_url: "https://t.me/markettwits",
+    my_chanel_url_ru: "-1003103228886",
+    my_chanel_url_en: "-1003071514993",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: true,
   },
 
   {

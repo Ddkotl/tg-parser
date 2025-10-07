@@ -104,11 +104,13 @@ export async function parseChanel({ client, config }: ParseChanelData) {
           file: files,
           caption: modyfied_text_ru,
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+          silent: true,
         });
         await client.sendFile(config.my_chanel_url_en, {
           file: files,
           caption: modyfied_text_en,
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+          silent: true,
         });
 
         // Загрузка фото на Catbox
