@@ -1,15 +1,17 @@
 import { openai, TEXT_AI_MODELS } from "../../api/ai_api_connect.js";
 import { standart_config_data } from "../../../config/config.js";
+
 async function test() {
   for (const model of TEXT_AI_MODELS) {
     console.log("go model : ", model);
     try {
       const res = await openai.chat.completions.create({
         model: model,
-        messages: [
+        //provider:"AnyProvider",
+        messages:[
           {
             role: "system",
-            content: standart_config_data.system_ai_promt_ru,
+            content: standart_config_data.system_ai_promt_en,
           },
           {
             role: "user",
@@ -22,7 +24,7 @@ async function test() {
               `,
           },
         ],
-      });
+      }as any);
       console.log(res?.choices[0]?.message?.content);
     } catch (error) {
       console.log("error in model : ", model, error);

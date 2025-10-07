@@ -1,125 +1,52 @@
-[dotenv@17.2.2] injecting env (5) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
-go model :  gpt-4o
-error in model :  gpt-4o NotFoundError: 404 <!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
-
-    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:84:14)
-    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
-    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:19) {
-  status: 404,
-  headers: Headers {
-    date: 'Tue, 07 Oct 2025 10:14:02 GMT',
-    server: 'uvicorn',
-    'content-type': 'text/html; charset=utf-8',
-    'content-length': '207'
-  },
-  requestID: null,
-  error: undefined,
-  code: undefined,
-  param: undefined,
-  type: undefined
-}
-go model :  gpt-4.1
-error in model :  gpt-4.1 NotFoundError: 404 <!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
-
-    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:84:14)
-    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
-    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:19) {
-  status: 404,
-  headers: Headers {
-    date: 'Tue, 07 Oct 2025 10:14:02 GMT',
-    server: 'uvicorn',
-    'content-type': 'text/html; charset=utf-8',
-    'content-length': '207'
-  },
-  requestID: null,
-  error: undefined,
-  code: undefined,
-  param: undefined,
-  type: undefined
-}
+[dotenv@17.2.2] injecting env (5) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
 go model :  gpt-4
-error in model :  gpt-4 NotFoundError: 404 <!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+Это интересное и значительное развитие для Казахстана! Создание государственного крипторезерва и фонда цифровых активов может стать важным шагом в укреплении финансовой устойчивости страны в условиях глобальных экономических изменений. Кроме того, это может способствовать развитию цифровой экономики, привлечению инвестиций в высокотехнологичные отрасли и расширению использования цифровых технологий.
 
+Цифровой тенге, безусловно, тоже может сыграть ключевую роль в интеграции криптовалют в национальную экономику. Казахстан, с его более либеральным подходом к криптовалютам, может стать важным игроком на цифровом финансовом рынке в Центральной Азии.
+
+Как ты думаешь, такие инициативы могут повлиять на другие страны региона?
+go model :  deepseek-v3
+🌐 Kazakhstan to Establish State Crypto Reserve 🇰🇿  
+
+President Kassym-Jomart Tokayev has proposed the creation of a national digital asset fund aimed at accumulating a strategic crypto reserve.  
+
+📈 The digital tenge is set to expand its reach into both republican and local budgets. Additionally, the government has been tasked with developing an investment program focused on high-tech sectors of the economy.  
+
+During his address to the nation, President Tokayev emphasized the importance of establishing a state digital asset fund to consolidate a strategic crypto reserve. He stated:  
+«Under the auspices of the National Bank’s Investment Corporation, it is necessary to create a State Digital Asset Fund that will consolidate a strategic crypto reserve, encompassing the most promising assets within the emerging digital financial ecosystem.»  
+
+🚀 This initiative marks a significant step toward Kazakhstan’s integration into the global digital economy.  
+
+#CryptoReserve #DigitalEconomy #KazakhstanInnovation
+go model :  deepseek-v3.1
+Kazakhstan to Establish National Crypto Reserve 🇰🇿
+
+President Kassym-Jomart Tokeyev has proposed creating a State Digital Asset Fund to accumulate a strategic crypto reserve 💼. The initiative aims to consolidate promising digital assets within the emerging financial ecosystem.
+
+Additionally, the digital tenge is set to expand to cover both republican and local budgets. The government has also been tasked with developing a program to invest in high-tech sectors of the economy 🚀.
+
+#CryptoReserve #DigitalTenge #KazakhstanTech 🌐
+go model :  llama
+Kazakhstan to Create National Crypto Reserve 🇰🇿
+President of Kazakhstan proposes a national digital assets fund to accumulate a strategic crypto reserve 📈. The digital tenge will be expanded to the republican and local budgets 💰. The government is tasked with developing an investment program for high-tech sectors 🚀. The president emphasized the need for a state digital assets fund to form a strategic crypto reserve, saying it will consolidate the most promising assets in the emerging digital financial ecosystem 💻 #KazakhstanCrypto #DigitalAssets #CryptoReserve # BlockchainTechnology
+go model :  claude-3
+error in model :  claude-3 NotFoundError: 404 ModelNotFoundError: AnyProvider: Model claude-3 not found in any provider.
     at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:84:14)
     at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
     at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:19) {
+    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:8:19) {
   status: 404,
   headers: Headers {
-    date: 'Tue, 07 Oct 2025 10:14:02 GMT',
+    date: 'Tue, 07 Oct 2025 11:44:18 GMT',
     server: 'uvicorn',
-    'content-type': 'text/html; charset=utf-8',
-    'content-length': '207'
+    'content-length': '121',
+    'content-type': 'application/json'
   },
   requestID: null,
-  error: undefined,
-  code: undefined,
-  param: undefined,
-  type: undefined
-}
-go model :  gpt-4o-mini
-error in model :  gpt-4o-mini NotFoundError: 404 <!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
-
-    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:84:14)
-    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
-    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:19) {
-  status: 404,
-  headers: Headers {
-    date: 'Tue, 07 Oct 2025 10:14:02 GMT',
-    server: 'uvicorn',
-    'content-type': 'text/html; charset=utf-8',
-    'content-length': '207'
+  error: {
+    message: 'ModelNotFoundError: AnyProvider: Model claude-3 not found in any provider.'
   },
-  requestID: null,
-  error: undefined,
-  code: undefined,
-  param: undefined,
-  type: undefined
-}
-go model :  gpt-3.5-turbo
-error in model :  gpt-3.5-turbo NotFoundError: 404 <!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
-
-    at Function.generate (/workspaces/tg-parser/node_modules/openai/src/core/error.ts:84:14)
-    at OpenAI.makeStatusError (/workspaces/tg-parser/node_modules/openai/src/client.ts:463:28)
-    at OpenAI.makeRequest (/workspaces/tg-parser/node_modules/openai/src/client.ts:713:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async test (/workspaces/tg-parser/src/utils/ai/test/test_ai.ts:7:19) {
-  status: 404,
-  headers: Headers {
-    date: 'Tue, 07 Oct 2025 10:14:02 GMT',
-    server: 'uvicorn',
-    'content-type': 'text/html; charset=utf-8',
-    'content-length': '207'
-  },
-  requestID: null,
-  error: undefined,
   code: undefined,
   param: undefined,
   type: undefined
