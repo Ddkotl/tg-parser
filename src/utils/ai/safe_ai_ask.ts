@@ -89,6 +89,10 @@ const containsError = (response: string): boolean => {
     console.log(`[containsError] Ответ слишком длинный: ${response.length} символов`);
     return true;
   }
+  if (response.length <= 150) {
+    console.log(`[containsError] Ответ слишком короткий: ${response.length} символов`);
+    return true;
+  }
   const lower = response.toLowerCase();
   const match = ERROR_PATTERNS.find((pattern) => lower.includes(pattern));
 
