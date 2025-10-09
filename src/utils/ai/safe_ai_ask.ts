@@ -80,8 +80,9 @@ const ERROR_PATTERNS = [
   "won’t discuss those sensitive topics",
   "который вы предоставили",
   "cant engage in discussions",
-  "вот ваш",
   "here is yours",
+  "ip",
+  "chat"
 ];
 
 const containsError = (response: string): boolean => {
