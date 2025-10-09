@@ -81,6 +81,7 @@ const ERROR_PATTERNS = [
   "который вы предоставили",
   "cant engage in discussions",
   "here is yours",
+  "вот ваш",
   "ip",
   "chat"
 ];
