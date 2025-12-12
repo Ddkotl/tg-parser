@@ -2,7 +2,8 @@ import * as fs from "node:fs";
 import { TelegramClient } from "telegram";
 import { StringSession } from "telegram/sessions/StringSession.js";
 import { ask } from "../ask_in_terminal.js";
-
+import dotenv from 'dotenv'
+dotenv.config()
 export async function createTgApiClient({
   apiId,
   apiHash,
@@ -12,8 +13,9 @@ export async function createTgApiClient({
   apiHash: string | undefined;
   SESSION_FILE: string;
 }): Promise<TelegramClient> {
-  let sessionString = "";
-  if (fs.existsSync(SESSION_FILE)) {
+  let sessionString = process.env.SESSION;
+
+  if (!sessionString && fs.existsSync(SESSION_FILE)) {
     sessionString = fs.readFileSync(SESSION_FILE, "utf8");
   }
   let stringSession = new StringSession(sessionString);
