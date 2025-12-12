@@ -2,8 +2,8 @@ import * as fs from "node:fs";
 import { TelegramClient } from "telegram";
 import { StringSession } from "telegram/sessions/StringSession.js";
 import { ask } from "../ask_in_terminal.js";
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 export async function createTgApiClient({
   apiId,
   apiHash,

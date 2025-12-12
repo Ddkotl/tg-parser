@@ -8,7 +8,7 @@ async function test() {
       const res = await openai.chat.completions.create({
         model: model,
         //provider:"AnyProvider",
-        messages:[
+        messages: [
           {
             role: "system",
             content: standart_config_data.system_ai_promt_en,
@@ -24,7 +24,7 @@ async function test() {
               `,
           },
         ],
-      }as any);
+      } as any);
       console.log(res?.choices[0]?.message?.content);
     } catch (error) {
       console.log("error in model : ", model, error);

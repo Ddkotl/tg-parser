@@ -82,8 +82,7 @@ const ERROR_PATTERNS = [
   "cant engage in discussions",
   "here is yours",
   "вот ваш",
-  "ip",
-  "chat"
+  "chat",
 ];
 
 const containsError = (response: string): boolean => {
@@ -97,7 +96,6 @@ const containsError = (response: string): boolean => {
   }
   const lower = response.toLowerCase();
   const match = ERROR_PATTERNS.find((pattern) => lower.includes(pattern));
-
   if (match) {
     console.log(`[containsError] Найдена ошибка! Шаблон: "${match}" в ответе: `);
     return true;
@@ -116,7 +114,7 @@ export const safeAiAsk = async (
     temperature?: number,
   ) => Promise<string>,
   temperature?: number,
-  retries: number = 100,
+  retries: number = 50,
 ): Promise<string> => {
   for (let i = 0; i < retries; i++) {
     const model_count = TEXT_AI_MODELS.length;
