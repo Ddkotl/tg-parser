@@ -1,0 +1,43 @@
+name: Parse Script
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "10 */2 * * *"
+
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          
+      - name: Install deps
+        run: npm install
+
+      - name: Start Docker containers
+        run: docker compose up -d
+        env:
+          G4F_PORT: ${{secrets.G4F_PORT}}
+          
+      - name: Build
+        run: npm run build
+        env:
+          G4F_PORT: ${{secrets.G4F_PORT}}
+          TELEGRAM_CLIENT_API_ID: ${{secrets.TELEGRAM_CLIENT_API_ID}}
+          TELEGRAM_CLIENT_API_HASH: ${{secrets.TELEGRAM_CLIENT_API_HASH}}
+          FACEBOOK_ACCESS_TOKEN: ${{secrets.FACEBOOK_ACCESS_TOKEN}}
+          INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID}}
+          
+      - name: Strart parse
+        run: npm run start
+        env:
+          G4F_PORT: ${{secrets.G4F_PORT}}
+          TELEGRAM_CLIENT_API_ID: ${{secrets.TELEGRAM_CLIENT_API_ID}}
+          TELEGRAM_CLIENT_API_HASH: ${{secrets.TELEGRAM_CLIENT_API_HASH}}
+          FACEBOOK_ACCESS_TOKEN: ${{secrets.FACEBOOK_ACCESS_TOKEN}}
+          INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID}}
