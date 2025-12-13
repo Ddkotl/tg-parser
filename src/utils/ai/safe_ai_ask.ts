@@ -122,7 +122,8 @@ export const safeAiAsk = async (
     try {
       console.log("use : ", current_ai_model);
       await sleep(10000);
-      const response = await aiFunction(current_ai_model, text, system_promt, temperature);
+      const ai_res = await aiFunction(current_ai_model, text, system_promt, temperature);
+      const response = ai_res.replace(/<think>[\s\S]*?<\/think>/g, '')
       console.log(response)
       if (response && !containsError(response)) {
         console.log("ai ok");
