@@ -123,6 +123,7 @@ export const safeAiAsk = async (
       console.log("use : ", current_ai_model);
       await sleep(10000);
       const response = await aiFunction(current_ai_model, text, system_promt, temperature);
+      console.log(response)
       if (response && !containsError(response)) {
         console.log("ai ok");
         return response;
