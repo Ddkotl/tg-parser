@@ -1,65 +1,94 @@
+
 import dotenv from "dotenv";
 dotenv.config();
 
-export async function publishToInstagram({ text, img }: { text: string; img: string }) {
-  try {
-    const face_token = process.env.FACEBOOK_ACCESS_TOKEN;
-    const inst_id = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
-    if (!face_token || !inst_id) {
-      console.log("Не настроены параметры для публикации в Instagram");
-      return;
-    }
+const GRAPH_VERSION = "v22.0";
+const GRAPH_URL = "https://graph.facebook.com";
 
-    const creationResponse = await fetch(`https://graph.facebook.com/v22.0/${inst_id}/media`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        image_url: img,
-        caption: text,
-        access_token: face_token,
-      }),
-    });
+async function waitForMediaReady(mediaId: string, token: string, timeoutMs = 60000) {
+  const start = Date.now();
 
-    const creationData = await creationResponse.json();
-    const creationId = creationData.id;
-
-    if (!creationId) {
-      throw new Error("Не удалось создать контейнер медиа");
-    }
-
-    // 2. Публикуем контейнер
-    const publishResponse = await fetch(
-      `https://graph.facebook.com/v22.0/${inst_id}/media_publish`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          creation_id: creationId,
-          access_token: face_token,
-        }),
-      },
+  while (Date.now() - start < timeoutMs) {
+    const res = await fetch(
+      `${GRAPH_URL}/${GRAPH_VERSION}/${mediaId}?fields=status_code&access_token=${token}`
     );
 
-    const publishData = await publishResponse.json();
+    const data = await res.json();
 
-    if (publishData.error) {
-      throw new Error(publishData.error.message);
+    if (data.status_code === "FINISHED") return;
+    if (data.status_code === "ERROR") {
+      throw new Error(`Media ${mediaId} processing failed`);
     }
 
-    console.log("Пост успешно опубликован в Instagram! ID:", publishData.id);
-  } catch (error) {
-    console.log("Ошибка при публикации поста в Instagram:", error);
+    await new Promise((r) => setTimeout(r, 2000));
   }
+
+  throw new Error(`Timeout waiting for media ${mediaId}`);
 }
 
-//(async () => {
- //  await publishToInstagram({
-//text: "test",
- //img: "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
- //});
-//})();
+export async function publishToInstagram({
+  text,
+  img,
+}: {
+  text: string;
+  img: string;
+}) {
+  const face_token = process.env.FACEBOOK_ACCESS_TOKEN;
+  const inst_id = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 
+  if (!face_token || !inst_id) {
+    console.log("❌ Нет токена или Instagram ID");
+    return false;
+  }
+
+  // 1. Создаём container
+  const params = new URLSearchParams({
+    image_url: img,
+    caption: text,
+    access_token: face_token,
+  });
+
+  const creationRes = await fetch(
+    `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`,
+    { method: "POST", body: params }
+  );
+
+  const creationData = await creationRes.json();
+
+  if (!creationData.id) {
+    console.log("Ошибка создания контейнера:", creationData);
+    return false;
+  }
+
+  // 2. Ждём готовность
+  await waitForMediaReady(creationData.id, face_token);
+
+  // 3. Публикуем
+  const publishParams = new URLSearchParams({
+    creation_id: creationData.id,
+    access_token: face_token,
+  });
+
+  const publishRes = await fetch(
+    `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media_publish`,
+    { method: "POST", body: publishParams }
+  );
+
+  const publishData = await publishRes.json();
+
+  if (publishData.error) {
+    console.log("Ошибка публикации:", publishData.error);
+    return false;
+  }
+
+  console.log("✅ Пост опубликован:", publishData.id);
+  return true;
+}
+
+
+(async () => {
+ await publishToInstagram({
+text: "test",
+img: "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+});
+})();
