@@ -1,4 +1,7 @@
-export async function publishCarouselToInstagram({ text, imgs }) {
+import dotenv from "dotenv"
+dotenv.config()
+
+export async function publishCarouselToInstagram({ text, imgs }:{text:string,imgs:string[]}) {
   const face_token = process.env.FACEBOOK_ACCESS_TOKEN;
   const inst_id = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 
@@ -74,3 +77,12 @@ export async function publishCarouselToInstagram({ text, imgs }) {
   console.log("✅ Карусель опубликована:", publishData.id);
   return true;
 }
+
+
+
+(async () => {
+ await publishCarouselToInstagram({
+text: "test carusel",
+  imgs: ["https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg","https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg","https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg"]
+ });
+})();
