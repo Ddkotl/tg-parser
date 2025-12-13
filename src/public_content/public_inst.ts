@@ -56,10 +56,10 @@ export async function publishToInstagram({ text, img }: { text: string; img: str
   }
 }
 
-(async () => {
-   await publishToInstagram({
-text: "test",
- img: "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
- });
-})();
+//(async () => {
+ //  await publishToInstagram({
+//text: "test",
+ //img: "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+ //});
+//})();
 
