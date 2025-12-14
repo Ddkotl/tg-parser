@@ -139,13 +139,13 @@ export async function publishCarouselToInstagram({
 /**
  * Тестовый запуск
  */
-(async () => {
-  await publishCarouselToInstagram({
-    text: "test carousel",
-    imgs: [
-      "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
-      "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
-      "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
-    ],
-  });
-})();
+//(async () => {
+//  await publishCarouselToInstagram({
+ //   text: "test carousel",
+//    imgs: [
+ //     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+ //     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+ //     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+ //   ],
+//  });
+//})();
