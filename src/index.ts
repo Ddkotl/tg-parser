@@ -8,6 +8,15 @@ dotenv.config();
 const apiId = process.env.TELEGRAM_CLIENT_API_ID;
 const apiHash = process.env.TELEGRAM_CLIENT_API_HASH;
 const SESSION_FILE = path.join(process.cwd(), "session.txt");
+const PARSE_TIME_LIMIT_MS = 1.5 * 60 * 60 * 1000;
+
+function timeoutPromise(ms: number) {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error("Операция превысила лимит по времени"));
+    });
+  });
+}
 
 (async () => {
   const client = await createTgApiClient({
@@ -16,9 +25,14 @@ const SESSION_FILE = path.join(process.cwd(), "session.txt");
     SESSION_FILE: SESSION_FILE,
   });
 
-  for (const config of chanels_parser_config) {
-    await parseChanel({ client, config });
-  }
+  await Promise.race([
+    (async () => {
+      for (const config of chanels_parser_config) {
+        await parseChanel({ client, config });
+      }
+    })(),
+    timeoutPromise(PARSE_TIME_LIMIT_MS),
+  ]);
 
   console.log("📨 Все задачи завершены.");
   await client.disconnect();
