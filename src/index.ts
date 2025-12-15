@@ -14,7 +14,7 @@ function timeoutPromise(ms: number) {
   return new Promise((_, reject) => {
     setTimeout(() => {
       reject(new Error("Операция превысила лимит по времени"));
-    });
+    },PARSE_TIME_LIMIT_MS);
   });
 }
 
