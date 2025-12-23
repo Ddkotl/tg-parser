@@ -114,22 +114,22 @@ export async function parseChanel({ client, config }: ParseChanelData) {
         });
 
         // Загрузка фото на Catbox
-        const buffers: Buffer[] = [];
-        for (const file of files) {
-          const buf = await client.downloadMedia(file);
-          if (buf && buf instanceof Buffer) buffers.push(buf);
-        }
+        // const buffers: Buffer[] = [];
+        // for (const file of files) {
+        //   const buf = await client.downloadMedia(file);
+        //   if (buf && buf instanceof Buffer) buffers.push(buf);
+        // }
 
-        if (buffers.length > 0) {
-          log("UPLOAD", `Загружаем ${buffers.length} фото на Catbox...`, "☁️");
-          const urls: string[] = [];
-          for (let i = 0; i < buffers.length; i++) {
-            const url = await getLinkToImg(buffers[i] as Buffer, `telegram_album_${i}.jpg`);
-            urls.push(url);
-          }
-          log("UPLOAD", `Catbox URLs: ${urls.join(", ")}`, "🌐");
-          await publishCarouselToInstagram({ text: modyfied_text_ru, imgs: urls });
-        }
+        // if (buffers.length > 0) {
+        //   log("UPLOAD", `Загружаем ${buffers.length} фото на Catbox...`, "☁️");
+        //   const urls: string[] = [];
+        //   for (let i = 0; i < buffers.length; i++) {
+        //     const url = await getLinkToImg(buffers[i] as Buffer, `telegram_album_${i}.jpg`);
+        //     urls.push(url);
+        //   }
+        //   log("UPLOAD", `Catbox URLs: ${urls.join(", ")}`, "🌐");
+        //   await publishCarouselToInstagram({ text: modyfied_text_ru, imgs: urls });
+        // }
       }
     } else if (media && media instanceof Api.MessageMediaPhoto) {
       log("SEND", "Публикуем пост с фото в каналы...", "🖼");
@@ -145,18 +145,18 @@ export async function parseChanel({ client, config }: ParseChanelData) {
         scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
       });
 
-      if (config.post_to_inst) {
-        const buffer = await client.downloadMedia(msg);
-        if (!buffer || !(buffer instanceof Buffer)) {
-          log("ERROR", "Не удалось скачать медиа из Telegram", "❌");
-          continue;
-        }
+      // if (config.post_to_inst) {
+      //   const buffer = await client.downloadMedia(msg);
+      //   if (!buffer || !(buffer instanceof Buffer)) {
+      //     log("ERROR", "Не удалось скачать медиа из Telegram", "❌");
+      //     continue;
+      //   }
 
-        log("UPLOAD", "Загружаем фото на Catbox...", "☁️");
-        const url = await getLinkToImg(buffer, "telegram.jpg");
-        log("UPLOAD", `Catbox URL: ${url}`, "🌐");
-        await publishToInstagram({ text: modyfied_text_ru, img: url });
-      }
+      //   log("UPLOAD", "Загружаем фото на Catbox...", "☁️");
+      //   const url = await getLinkToImg(buffer, "telegram.jpg");
+      //   log("UPLOAD", `Catbox URL: ${url}`, "🌐");
+      //   await publishToInstagram({ text: modyfied_text_ru, img: url });
+      // }
     } else {
       log("SEND", "Публикуем текстовый пост в каналы...", "📝");
 
