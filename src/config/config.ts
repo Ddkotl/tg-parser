@@ -77,6 +77,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     post_to_inst: false,
   },
   {
+    parsed_chanel_name: "Тайны сознания | Психология",
+    parsed_chanel_url: "-1001824595805",
+    my_chanel_url_ru: "-1003573331951",
+    my_chanel_url_en: "-1003622867278",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: false,
+  },
+  {
     parsed_chanel_name: "MarketTwits",
     parsed_chanel_url: "https://t.me/markettwits",
     my_chanel_url_ru: "-1003103228886",
