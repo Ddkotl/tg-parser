@@ -26,11 +26,14 @@ function timeoutPromise(ms: number) {
   });
 
   await Promise.race([
-    (async () => {
-      for (const config of chanels_parser_config) {
-        await parseChanel({ client, config });
-      }
-    })(),
+    Promise.all(
+    chanels_parser_config.map(config => parseChanel({ client, config }))
+  ),
+    //(async () => {
+      //for (const config of chanels_parser_config) {
+       // await parseChanel({ client, config });
+      //}
+    //})(),
     timeoutPromise(PARSE_TIME_LIMIT_MS),
   ]);
 
