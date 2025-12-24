@@ -12,7 +12,7 @@ async function waitForMediaReady(mediaId: string, token: string, timeoutMs = 600
 
   while (Date.now() - start < timeoutMs) {
     const res = await fetch(
-      `${GRAPH_URL}/${GRAPH_VERSION}/${mediaId}?fields=status_code&access_token=${token}`
+      `${GRAPH_URL}/${GRAPH_VERSION}/${mediaId}?fields=status_code&access_token=${token}`,
     );
 
     const data = await res.json();
@@ -31,13 +31,7 @@ async function waitForMediaReady(mediaId: string, token: string, timeoutMs = 600
   throw new Error(`Timeout waiting for media ${mediaId}`);
 }
 
-export async function publishCarouselToInstagram({
-  text,
-  imgs,
-}: {
-  text: string;
-  imgs: string[];
-}) {
+export async function publishCarouselToInstagram({ text, imgs }: { text: string; imgs: string[] }) {
   const face_token = process.env.FACEBOOK_ACCESS_TOKEN;
   const inst_id = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 
@@ -58,10 +52,10 @@ export async function publishCarouselToInstagram({
       access_token: face_token,
     });
 
-    const res = await fetch(
-      `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`,
-      { method: "POST", body: params }
-    );
+    const res = await fetch(`${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`, {
+      method: "POST",
+      body: params,
+    });
 
     const data = await res.json();
 
@@ -95,10 +89,10 @@ export async function publishCarouselToInstagram({
     access_token: face_token,
   });
 
-  const carouselRes = await fetch(
-    `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`,
-    { method: "POST", body: carouselParams }
-  );
+  const carouselRes = await fetch(`${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`, {
+    method: "POST",
+    body: carouselParams,
+  });
 
   const carouselData = await carouselRes.json();
 
@@ -120,10 +114,10 @@ export async function publishCarouselToInstagram({
     access_token: face_token,
   });
 
-  const publishRes = await fetch(
-    `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media_publish`,
-    { method: "POST", body: publishParams }
-  );
+  const publishRes = await fetch(`${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media_publish`, {
+    method: "POST",
+    body: publishParams,
+  });
 
   const publishData = await publishRes.json();
 
@@ -141,11 +135,11 @@ export async function publishCarouselToInstagram({
  */
 //(async () => {
 //  await publishCarouselToInstagram({
- //   text: "test carousel",
+//   text: "test carousel",
 //    imgs: [
- //     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
- //     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
- //     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
- //   ],
+//     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+//     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+//     "https://cdn.pixabay.com/photo/2024/05/30/22/14/bird-8799413_1280.jpg",
+//   ],
 //  });
 //})();

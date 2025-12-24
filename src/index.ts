@@ -14,7 +14,7 @@ function timeoutPromise(ms: number) {
   return new Promise((_, reject) => {
     setTimeout(() => {
       reject(new Error("Операция превысила лимит по времени"));
-    },PARSE_TIME_LIMIT_MS);
+    }, PARSE_TIME_LIMIT_MS);
   });
 }
 
@@ -26,13 +26,11 @@ function timeoutPromise(ms: number) {
   });
 
   await Promise.race([
-    Promise.all(
-    chanels_parser_config.map(config => parseChanel({ client, config }))
-  ),
+    Promise.all(chanels_parser_config.map((config) => parseChanel({ client, config }))),
     //(async () => {
-      //for (const config of chanels_parser_config) {
-       // await parseChanel({ client, config });
-      //}
+    //for (const config of chanels_parser_config) {
+    // await parseChanel({ client, config });
+    //}
     //})(),
     timeoutPromise(PARSE_TIME_LIMIT_MS),
   ]);
