@@ -1,4 +1,3 @@
-
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -10,7 +9,7 @@ async function waitForMediaReady(mediaId: string, token: string, timeoutMs = 600
 
   while (Date.now() - start < timeoutMs) {
     const res = await fetch(
-      `${GRAPH_URL}/${GRAPH_VERSION}/${mediaId}?fields=status_code&access_token=${token}`
+      `${GRAPH_URL}/${GRAPH_VERSION}/${mediaId}?fields=status_code&access_token=${token}`,
     );
 
     const data = await res.json();
@@ -26,13 +25,7 @@ async function waitForMediaReady(mediaId: string, token: string, timeoutMs = 600
   throw new Error(`Timeout waiting for media ${mediaId}`);
 }
 
-export async function publishToInstagram({
-  text,
-  img,
-}: {
-  text: string;
-  img: string;
-}) {
+export async function publishToInstagram({ text, img }: { text: string; img: string }) {
   const face_token = process.env.FACEBOOK_ACCESS_TOKEN;
   const inst_id = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 
@@ -48,10 +41,10 @@ export async function publishToInstagram({
     access_token: face_token,
   });
 
-  const creationRes = await fetch(
-    `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`,
-    { method: "POST", body: params }
-  );
+  const creationRes = await fetch(`${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media`, {
+    method: "POST",
+    body: params,
+  });
 
   const creationData = await creationRes.json();
 
@@ -69,10 +62,10 @@ export async function publishToInstagram({
     access_token: face_token,
   });
 
-  const publishRes = await fetch(
-    `${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media_publish`,
-    { method: "POST", body: publishParams }
-  );
+  const publishRes = await fetch(`${GRAPH_URL}/${GRAPH_VERSION}/${inst_id}/media_publish`, {
+    method: "POST",
+    body: publishParams,
+  });
 
   const publishData = await publishRes.json();
 
@@ -84,7 +77,6 @@ export async function publishToInstagram({
   console.log("✅ Пост опубликован:", publishData.id);
   return true;
 }
-
 
 //(async () => {
 // await publishToInstagram({

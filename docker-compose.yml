@@ -4,5 +4,4 @@ services:
     image: hlohaus789/g4f
     restart: always
     ports:
-      - "${G4F_PORT}:8080"      
-
+      - "${G4F_PORT}:8080"

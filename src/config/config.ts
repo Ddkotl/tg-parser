@@ -56,7 +56,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     parsed_chanel_name: "Знаки зодиака на Сегодня",
     parsed_chanel_url: "https://t.me/Goroskop",
     my_chanel_url_ru: "-1002650446328",
-    my_chanel_url_en: "-1003079394204",
+    // my_chanel_url_en: "-1003079394204",
     post_count: standart_config_data.post_count,
     diff_hour: standart_config_data.diff_hour,
     system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
@@ -88,7 +88,7 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: false,
   },
-    {
+  {
     parsed_chanel_name: "Эпоха криминальных войн",
     parsed_chanel_url: "https://t.me/epohakriminalnykhvoin",
     my_chanel_url_ru: "-1003606280207",

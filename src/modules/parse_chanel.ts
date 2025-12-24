@@ -106,12 +106,14 @@ export async function parseChanel({ client, config }: ParseChanelData) {
           scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
           silent: true,
         });
-        await client.sendFile(config.my_chanel_url_en, {
-          file: files,
-          caption: modyfied_text_en,
-          scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-          silent: true,
-        });
+        if (config.my_chanel_url_en) {
+          await client.sendFile(config.my_chanel_url_en, {
+            file: files,
+            caption: modyfied_text_en,
+            scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+            silent: true,
+          });
+        }
 
         // Загрузка фото на Catbox
         // const buffers: Buffer[] = [];
@@ -139,11 +141,13 @@ export async function parseChanel({ client, config }: ParseChanelData) {
         caption: modyfied_text_ru,
         scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
       });
-      await client.sendFile(config.my_chanel_url_en, {
-        file: media,
-        caption: modyfied_text_en,
-        scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-      });
+      if (config.my_chanel_url_en) {
+        await client.sendFile(config.my_chanel_url_en, {
+          file: media,
+          caption: modyfied_text_en,
+          scheduleDate: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+        });
+      }
 
       // if (config.post_to_inst) {
       //   const buffer = await client.downloadMedia(msg);
@@ -164,10 +168,12 @@ export async function parseChanel({ client, config }: ParseChanelData) {
         message: modyfied_text_ru,
         schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
       });
-      await client.sendMessage(config.my_chanel_url_en, {
-        message: modyfied_text_en,
-        schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
-      });
+      if (config.my_chanel_url_en) {
+        await client.sendMessage(config.my_chanel_url_en, {
+          message: modyfied_text_en,
+          schedule: Math.floor(Date.now() / 1000) + counter * 60 * 5,
+        });
+      }
     }
 
     counter++;
