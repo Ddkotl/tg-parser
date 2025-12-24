@@ -6,7 +6,7 @@ export type ParseChanelConfigData = {
   parsed_chanel_name: string;
   parsed_chanel_url: string;
   my_chanel_url_ru: string;
-  my_chanel_url_en: string;
+  my_chanel_url_en?: string;
   post_count: number;
   diff_hour: number;
   system_ai_promt_ru: string;
