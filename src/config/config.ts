@@ -88,6 +88,18 @@ export const chanels_parser_config: ParseChanelConfigData[] = [
     ai_temperature: standart_config_data.ai_temperature,
     post_to_inst: false,
   },
+    {
+    parsed_chanel_name: "Эпоха криминальных войн",
+    parsed_chanel_url: "https://t.me/epohakriminalnykhvoin",
+    my_chanel_url_ru: "-1003606280207",
+    my_chanel_url_en: "-1003518869157",
+    post_count: standart_config_data.post_count,
+    diff_hour: standart_config_data.diff_hour,
+    system_ai_promt_ru: standart_config_data.system_ai_promt_ru,
+    system_ai_promt_en: standart_config_data.system_ai_promt_en,
+    ai_temperature: standart_config_data.ai_temperature,
+    post_to_inst: false,
+  },
   {
     parsed_chanel_name: "MarketTwits",
     parsed_chanel_url: "https://t.me/markettwits",
