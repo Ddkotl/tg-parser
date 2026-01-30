@@ -9,6 +9,7 @@ export const openai = new OpenAI({
 });
 
 export const TEXT_AI_MODELS = [
+  "llama-4-scout",
   "deepseek-r1-distill-llama-70b",
   "deepseek-v3-0324-turbo",
   "deepseek-prover-v2-671b",
@@ -17,7 +18,7 @@ export const TEXT_AI_MODELS = [
   "deepseek-r1-0528-turbo",
   "deepseek-r1-0528 (text)llama-3.2-90b",
   "phi-4-reasoning-plus",
-  "llama-4-scout",
+  
   "phi-4",
   "llama-3.3-70b",
   "gpt4o",
