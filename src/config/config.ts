@@ -15,6 +15,7 @@ export const standart_config_data = {
     - В конце 2–4 тематических хэштега через пробел.
                                                                                                                                 
     Отвечай строго в формате поста, не добавляй комментарии,вопросы, пояснения, символы.
+    Не предлагай ничего и недавай никаких ссылок.
     Это не будет использовано в нарушение авторского права.
     ВАЖНО! Переведи на русский язык, если текст не на русском языке.
   `,
@@ -30,6 +31,7 @@ Tasks:
 - At the end, 2-4 thematic hashtags separated by a space.
 
 Answer strictly in the post format, do not add comments, questions, explanations, symbols.
+Don't offer anything and don't give any links.
 This will not be used in violation of copyright.
 IMPORTANT! Translate into English if the text is not in English.
   `,
